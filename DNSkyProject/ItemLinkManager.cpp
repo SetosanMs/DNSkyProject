@@ -25,7 +25,10 @@ void LinkManagerSearch(WCHAR * chat){
 #ifdef DEBUG
 	//Game OBJ Init.
 	LoadGameObject();
-	//
+	//#
+#endif
+
+
 
 	//METRIX
 	if (metrixSent == 0) 
@@ -33,7 +36,6 @@ void LinkManagerSearch(WCHAR * chat){
 		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 		metrixSent = 1;
 	}
-#endif
 
 	if(PlayerData.isConnected == FALSE)
 	{
