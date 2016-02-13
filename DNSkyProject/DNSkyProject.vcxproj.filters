@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Guard">
+      <UniqueIdentifier>{0cab115d-52b5-4b7a-92b7-8db7b17db509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PakFilter">
+      <UniqueIdentifier>{d388a593-434a-4254-a515-933f18f45d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Detour">
+      <UniqueIdentifier>{efbaff43-903c-4492-a569-8affcc159f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dConnect">
+      <UniqueIdentifier>{6e04891b-475b-426f-a2fa-e57bc2ae37b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dReadFile">
+      <UniqueIdentifier>{908b2ef6-c189-4f9f-ba29-e1a40ce17353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Virtualizer">
+      <UniqueIdentifier>{f7839bfc-6ae6-447a-b8bb-1cf4d842bfcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard\Security">
+      <UniqueIdentifier>{e919ec42-e48d-4f71-ad4b-0cb847730b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fixes">
+      <UniqueIdentifier>{e9e6f31f-5610-42b1-b7b9-fecafd97bd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memory">
+      <UniqueIdentifier>{e6630fcd-c73f-45e5-a29d-984c06676dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WindowName">
+      <UniqueIdentifier>{2440ab88-a82e-460f-80c2-cf801e7732e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Extras">
+      <UniqueIdentifier>{5de1ddf1-e69e-4353-937c-4529ca60f996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Crypto">
+      <UniqueIdentifier>{58041df4-1124-4942-8c4b-c9450541107b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard\Security\CRC">
+      <UniqueIdentifier>{a6ab8c27-7ad0-4084-91e9-c363fd70851c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SplashScreen">
+      <UniqueIdentifier>{db79f0ab-236b-4b47-858d-d7cd2a74645b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dDebugOutputString">
+      <UniqueIdentifier>{8c0e0fb7-d533-4175-a691-e14434b0c0bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard\Reporting">
+      <UniqueIdentifier>{6885d281-541f-4b15-8baa-fdd13b22d778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard\Security\Base64">
+      <UniqueIdentifier>{6f6853ff-50ec-4dc1-8c39-8f6350b9f82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard\Scanners">
+      <UniqueIdentifier>{96e1a05d-4ad9-4605-87f0-0198bd51625a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ralukat Packing System">
+      <UniqueIdentifier>{43987451-e465-47ff-8611-62eff3d349b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DEBUG">
+      <UniqueIdentifier>{19a4d144-421d-4ca9-8b0f-8f84102a6d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WebClient">
+      <UniqueIdentifier>{446390f9-82d7-44a2-bb20-a786a179e95e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Validation System">
+      <UniqueIdentifier>{d1215048-d14c-4dcf-bb50-106c83b5a972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Metrix">
+      <UniqueIdentifier>{5abff8e9-3621-4e48-95f9-80708fe4fa1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Radio">
+      <UniqueIdentifier>{8bf6d7a4-c4c7-413a-914d-479bcf0eead1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game OBJECT">
+      <UniqueIdentifier>{0eaa60ed-4356-4c2d-b201-effcb68f55e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SmartPointers">
+      <UniqueIdentifier>{3c4f2822-bcf6-4e59-a963-c2927b4ed1af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command Processor">
+      <UniqueIdentifier>{1e75214c-0e44-429c-84d8-bc0cc950d196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Optimizations">
+      <UniqueIdentifier>{21ae3c14-471d-4411-a91d-f7918eb42456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fixes\ArabType">
+      <UniqueIdentifier>{41ac3f54-4284-4fad-b7a2-f3e55718dac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SplashScreen\StringEncryption">
+      <UniqueIdentifier>{24ab9c1a-575d-43ee-a294-48d5f03b590a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Color">
+      <UniqueIdentifier>{04fe500a-9444-4682-aace-4645de4dbfa9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EntryPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="DetourControl.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="dconnect.cpp">
+      <Filter>Source Files\dConnect</Filter>
+    </ClCompile>
+    <ClCompile Include="Security.cpp">
+      <Filter>Source Files\Guard\Security</Filter>
+    </ClCompile>
+    <ClCompile Include="Fixes.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Craft.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="CharCreate.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemLinkManager.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassInit.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryString.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowName.cpp">
+      <Filter>Source Files\WindowName</Filter>
+    </ClCompile>
+    <ClCompile Include="Extras.cpp">
+      <Filter>Source Files\Extras</Filter>
+    </ClCompile>
+    <ClCompile Include="dreadfile.cpp">
+      <Filter>Source Files\dReadFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Crypto.cpp">
+      <Filter>Source Files\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="CRC32.cpp">
+      <Filter>Source Files\Guard\Security\CRC</Filter>
+    </ClCompile>
+    <ClCompile Include="PakFilter.cpp">
+      <Filter>Source Files\PakFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="Splash.cpp">
+      <Filter>Source Files\SplashScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard.cpp">
+      <Filter>Source Files\Guard</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryScanner.cpp">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessIDScanner.cpp">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowScanner.cpp">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClCompile>
+    <ClCompile Include="doutputstring.cpp">
+      <Filter>Source Files\dDebugOutputString</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTPGuard.cpp">
+      <Filter>Source Files\Guard\Reporting</Filter>
+    </ClCompile>
+    <ClCompile Include="Base64.cpp">
+      <Filter>Source Files\Guard\Security\Base64</Filter>
+    </ClCompile>
+    <ClCompile Include="MacroKeys.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadedModuleScanner.cpp">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClCompile>
+    <ClCompile Include="PackingSystem.cpp">
+      <Filter>Source Files\Ralukat Packing System</Filter>
+    </ClCompile>
+    <ClCompile Include="ArabicText.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="picopng.cpp">
+      <Filter>Source Files\SplashScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="RLKT_Cryptography.cpp">
+      <Filter>Source Files\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DNPakCrypto\DNPakCrypto\HTTPClient.cpp">
+      <Filter>Source Files\WebClient</Filter>
+    </ClCompile>
+    <ClCompile Include="GameValidation.cpp">
+      <Filter>Source Files\Validation System</Filter>
+    </ClCompile>
+    <ClCompile Include="Metrics.cpp">
+      <Filter>Source Files\Metrix</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionManager.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterEffect.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Radio.cpp">
+      <Filter>Source Files\Radio</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartPointers.cpp">
+      <Filter>Source Files\SmartPointers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Game OBJECT</Filter>
+    </ClCompile>
+    <ClCompile Include="DNCommandProcessor.cpp">
+      <Filter>Source Files\Command Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="RamReducer.cpp">
+      <Filter>Source Files\Game Optimizations</Filter>
+    </ClCompile>
+    <ClCompile Include="CPUReducer.cpp">
+      <Filter>Source Files\Game Optimizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Messages.cpp">
+      <Filter>Source Files\Game OBJECT</Filter>
+    </ClCompile>
+    <ClCompile Include="DNCommandSend.cpp">
+      <Filter>Source Files\Command Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="ArabicShaping.cpp">
+      <Filter>Source Files\Fixes\ArabType</Filter>
+    </ClCompile>
+    <ClCompile Include="TextColor.cpp">
+      <Filter>Source Files\Game Color</Filter>
+    </ClCompile>
+    <ClCompile Include="zLibUncompress.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="SendFunction.cpp">
+      <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vlizer.h">
+      <Filter>Source Files\Virtualizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Detours.h">
+      <Filter>Source Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="se.h">
+      <Filter>Source Files\SplashScreen\StringEncryption</Filter>
+    </ClInclude>
+    <ClInclude Include="DetourControl.h">
+      <Filter>Source Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="dconnect.h">
+      <Filter>Source Files\dConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="Security.h">
+      <Filter>Source Files\Guard\Security</Filter>
+    </ClInclude>
+    <ClInclude Include="Fixes.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Craft.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>Source Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="CharCreate.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemLinkManager.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassInit.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryString.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowName.h">
+      <Filter>Source Files\WindowName</Filter>
+    </ClInclude>
+    <ClInclude Include="Extras.h">
+      <Filter>Source Files\Extras</Filter>
+    </ClInclude>
+    <ClInclude Include="dreadfile.h">
+      <Filter>Source Files\dReadFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Crypto.h">
+      <Filter>Source Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="CRC32.h">
+      <Filter>Source Files\Guard\Security\CRC</Filter>
+    </ClInclude>
+    <ClInclude Include="Splash.h">
+      <Filter>Source Files\SplashScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PakFilter.h">
+      <Filter>Source Files\PakFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard.h">
+      <Filter>Source Files\Guard</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSecurity.h">
+      <Filter>Source Files\Guard\Security</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryScanner.h">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessIDScanner.h">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowScanner.h">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClInclude>
+    <ClInclude Include="doutputstring.h">
+      <Filter>Source Files\dDebugOutputString</Filter>
+    </ClInclude>
+    <ClInclude Include="HTTPGuard.h">
+      <Filter>Source Files\Guard\Reporting</Filter>
+    </ClInclude>
+    <ClInclude Include="Base64.h">
+      <Filter>Source Files\Guard\Security\Base64</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroKeys.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadedModuleScanner.h">
+      <Filter>Source Files\Guard\Scanners</Filter>
+    </ClInclude>
+    <ClInclude Include="PackingSystem.h">
+      <Filter>Source Files\Ralukat Packing System</Filter>
+    </ClInclude>
+    <ClInclude Include="DEBUG.h">
+      <Filter>DEBUG</Filter>
+    </ClInclude>
+    <ClInclude Include="ArabicText.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="picopng.h">
+      <Filter>Source Files\SplashScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="RLKT_Cryptography.h">
+      <Filter>Source Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DNPakCrypto\DNPakCrypto\HTTPClient.h">
+      <Filter>Source Files\WebClient</Filter>
+    </ClInclude>
+    <ClInclude Include="GameValidation.h">
+      <Filter>Source Files\Validation System</Filter>
+    </ClInclude>
+    <ClInclude Include="Metrics.h">
+      <Filter>Source Files\Metrix</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionManager.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterEffect.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Radio.h">
+      <Filter>Source Files\Radio</Filter>
+    </ClInclude>
+    <ClInclude Include="bass.h">
+      <Filter>Source Files\Radio</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPointers.h">
+      <Filter>Source Files\SmartPointers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\Game OBJECT</Filter>
+    </ClInclude>
+    <ClInclude Include="DNCommandProcessor.h">
+      <Filter>Source Files\Command Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="RamReducer.h">
+      <Filter>Source Files\Game Optimizations</Filter>
+    </ClInclude>
+    <ClInclude Include="CPUReducer.h">
+      <Filter>Source Files\Game Optimizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Messages.h">
+      <Filter>Source Files\Game OBJECT</Filter>
+    </ClInclude>
+    <ClInclude Include="DNCommandSend.h">
+      <Filter>Source Files\Command Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="ArabicShaping.h">
+      <Filter>Source Files\Fixes\ArabType</Filter>
+    </ClInclude>
+    <ClInclude Include="TextColor.h">
+      <Filter>Source Files\Game Color</Filter>
+    </ClInclude>
+    <ClInclude Include="zLibUncompress.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="SendFunction.h">
+      <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DNSkyProject.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="E:\BGACKUP\Visual Studio 2013\Projects\dnsky\dnsky\Ralukat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\ARGuard.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Ralukat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\NewLogo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt">
+      <Filter>Source Files\Fixes\ArabType</Filter>
+    </Text>
+    <Text Include="Detalii si Switchuri.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+void doWindowScan();
+void LoadWindowNameData();

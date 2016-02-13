@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Scanners">
+      <UniqueIdentifier>{4cb27fdb-e29c-4083-b8d8-86dc447f479b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scanners\Memory Scanner">
+      <UniqueIdentifier>{2ed6ed51-c356-4b08-864d-7e0055eb6db2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scanners\Process Scanner">
+      <UniqueIdentifier>{e113cfb8-6a78-402b-a704-d4b360a16118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scanners\Window Name Scanner">
+      <UniqueIdentifier>{fda52303-9443-4c59-8354-ac7e1e18a2e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scanners\Module Scanner">
+      <UniqueIdentifier>{87574577-7b39-4d5e-96d1-dcef433e2d3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Crypto">
+      <UniqueIdentifier>{815df6d5-4397-4cda-ab80-98c18f887471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Guard">
+      <UniqueIdentifier>{9befdc3e-accc-42b8-ad05-28e8a8c5c463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Security">
+      <UniqueIdentifier>{0ed354f2-8b6d-457d-8cc9-ac4c3ca9f9fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryScanner.cpp">
+      <Filter>Source Files\Scanners\Memory Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessIDScanner.cpp">
+      <Filter>Source Files\Scanners\Process Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowScanner.cpp">
+      <Filter>Source Files\Scanners\Window Name Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadedModuleScanner.cpp">
+      <Filter>Source Files\Scanners\Module Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard.cpp">
+      <Filter>Source Files\Guard</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemoryScanner.h">
+      <Filter>Source Files\Scanners\Memory Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessIDScanner.h">
+      <Filter>Source Files\Scanners\Process Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowScanner.h">
+      <Filter>Source Files\Scanners\Window Name Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadedModuleScanner.h">
+      <Filter>Source Files\Scanners\Module Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="se.h">
+      <Filter>Source Files\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard.h">
+      <Filter>Source Files\Guard</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSecurity.h">
+      <Filter>Source Files\Security</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

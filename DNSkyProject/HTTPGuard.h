@@ -1,0 +1,1 @@
+void Finalize_OpenPage(char * ExecutableName);

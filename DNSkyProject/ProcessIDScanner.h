@@ -1,0 +1,3 @@
+
+void LoadProcessNameData();
+void doProcScan();
