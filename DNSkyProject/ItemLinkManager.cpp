@@ -28,13 +28,11 @@ void LinkManagerSearch(WCHAR * chat){
 	//#
 #endif
 
-
-
 	//METRIX
 	if (metrixSent == 0) 
 	{
-		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 		metrixSent = 1;
+		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 	}
 
 	if(PlayerData.isConnected == FALSE)

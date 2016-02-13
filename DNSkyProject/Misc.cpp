@@ -28,13 +28,11 @@ void generateRandomMutex()
 
 void checkCommandLine()
 {
-#ifdef THA
-	return;
-#endif
+
 	LPWSTR *szArglist;
 	int nArgs = 0;
 	szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
-
+#if !defined(THA)
 	if (nArgs < 5)
 	{
 #ifdef CHN
@@ -44,7 +42,7 @@ void checkCommandLine()
 #endif
 		ExitProcess(0);
 	}
-
+#endif
 
 	std::wstring AccountPortion(GetCommandLineW());
 	size_t start = AccountPortion.find(L"logintoken:");

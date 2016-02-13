@@ -26,6 +26,6 @@ void LoadAllFixes()
 #endif
 
 
-	LoadCPUReducer();
+	//LoadCPUReducer();
 	LoadCommandProcessor();
 }
