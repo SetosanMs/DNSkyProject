@@ -236,81 +236,81 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RU_R|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_R|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VTM_R|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_R_AH|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_R_AH|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_D|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MSTERE_R_AH|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MSTERE_D|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CA_R_AH|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_RD_AH|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AR_R_AH_PAK|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='THA_R_AH_PAK|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='THA_DEBUG|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_D|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\lzo-2.09;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -405,6 +405,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>RO;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -636,6 +637,7 @@
     <ClCompile Include="HTTPGuard.cpp" />
     <ClCompile Include="ItemLinkManager.cpp" />
     <ClCompile Include="LoadedModuleScanner.cpp" />
+    <ClCompile Include="lzo.cpp" />
     <ClCompile Include="MacroKeys.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="MemoryScanner.cpp" />
@@ -689,6 +691,7 @@
     <ClInclude Include="HTTPGuard.h" />
     <ClInclude Include="ItemLinkManager.h" />
     <ClInclude Include="LoadedModuleScanner.h" />
+    <ClInclude Include="lzo.h" />
     <ClInclude Include="MacroKeys.h" />
     <ClInclude Include="Memory.h" />
     <ClInclude Include="MemoryScanner.h" />
@@ -699,6 +702,8 @@
     <ClInclude Include="PackingSystem.h" />
     <ClInclude Include="PakFilter.h" />
     <ClInclude Include="picopng.h" />
+    <ClInclude Include="portab.h" />
+    <ClInclude Include="portab_a.h" />
     <ClInclude Include="ProcessIDScanner.h" />
     <ClInclude Include="Radio.h" />
     <ClInclude Include="RamReducer.h" />

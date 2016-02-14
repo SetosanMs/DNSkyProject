@@ -85,17 +85,17 @@ bool HTTPClient::SendCollectorData(eRequest reqType, std::string data, DWORD dat
 
 	send(Socket, Header.c_str(), Header.size(), 0);
 // doar de test.
-#ifdef DEBUG
+//#ifdef DEBUG
 	char buffer[10000];
 	int nDataLength;
 	while ((nDataLength = recv(Socket, buffer, 10000, 0)) > 0){
 		int i = 0;
 		while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
-			std::cout << buffer[i];
+			//std::cout << buffer[i];
 			i += 1;
 		}
 	}
-#endif
+//#endif
 	closesocket(Socket);
 	WSACleanup();
 //	system("pause");

@@ -24,7 +24,6 @@ void Main()
 {
 	LOAD_DEBUG_SWITCHES();
 
-
 	//VMProtectBeginVirtualization("Entry Point");
 	//Do integrity check!
 #if defined(RO) || defined (CHN) || defined(CHN_MSTERE)
@@ -45,7 +44,7 @@ void Main()
 	InitGuard();
 
 	//Load Filter
-#if defined (AR) || defined(THA) || defined(RU) || defined (VTM)
+#if defined (AR) || defined(THA) || defined(RU) || defined (VTM) || defined(RO)
 #if !defined(DEBUG)
 	CreateThread(NULL, 0, LoadFilterFile, NULL, NULL, 0); //Filter Thread
 #endif
@@ -85,6 +84,8 @@ void Main()
 	//CreateThread(NULL, 0, ReduceRAMThread, NULL, NULL, 0);
 #endif
 	
+
+	CreateThread(NULL, 0, CheckServerThread, NULL, NULL, 0);
 
 	//Load DEBUG Console
 #ifdef DEBUG

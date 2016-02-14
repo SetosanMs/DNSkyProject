@@ -1,4 +1,4 @@
-#define THA_KAWAII
+#define CHN
 
 extern BYTE cheimagice[];
 bool cryptpakv3(const std::string& s);

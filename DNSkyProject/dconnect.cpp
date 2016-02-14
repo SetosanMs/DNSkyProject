@@ -9,12 +9,14 @@
 #include "Fixes.h"
 #include <VMProtectSDK.h>
 #include "GameValidation.h"
+#include "Metrics.h"
 
 //variabile globale
 bool ValidIP = false;
 bool hooked = false;
 boolean Allocated = FALSE;
 std::string AllocatedIP;
+int metrixSent = 0;
 //detour
 int (WINAPI *dconnect)(SOCKET, const struct sockaddr*, int) = NULL;
 int WINAPI myconnect(SOCKET s, const struct sockaddr *name, int namelen);
@@ -23,7 +25,6 @@ int WINAPI myconnect(SOCKET s, const struct sockaddr *name, int namelen);
 int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	
 	////VMProtectBeginVirtualization("Detour Connect");
-
 	SOCKADDR_IN* name_in = (SOCKADDR_IN*)name;
 	unsigned short uPort = ntohs(name_in->sin_port);
 	char *sender = inet_ntoa(name_in->sin_addr);
@@ -32,8 +33,8 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	{
 		return dconnect(sock, name, namelen);
 	}
-
-	if (strcmp(sender, enc("185.10.62.192")) == 0 || strcmp(sender, enc("149.202.144.250")) == 0 && uPort == 80)
+	
+	if (strcmp(sender, enc("149.202.144.250")) == 0 && uPort == 80)
 	{ 
 		return dconnect(sock, name, namelen);
 	}
@@ -41,6 +42,15 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	if (strcmp(sender, enc("127.0.0.1")) == 0 || strcmp(sender, enc("211.218.230.106")) == 0){
 		return dconnect(sock, name, namelen);
 	}
+
+
+	//METRIX
+	if (metrixSent == 0) 
+	{
+		metrixSent = 1;
+		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
+	}
+
 
 
 #if !defined(RO) || defined(DEBUG) && !defined(RD)

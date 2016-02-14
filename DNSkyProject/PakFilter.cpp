@@ -148,7 +148,7 @@ unsigned long WINAPI LoadFilterFile(LPVOID)
 					if (FileCRC != AllowedFilesVector[FilesToCheck[i]])
 					{
 
-					s.crash();
+						s.crash();
 						char buff[128];
 						wsprintf(buff, enc("File %s is damaged , remove it and start game again!"), FilesToCheck[i].c_str());
 						MessageBoxA(NULL, buff, enc("Error"), MB_ICONERROR);

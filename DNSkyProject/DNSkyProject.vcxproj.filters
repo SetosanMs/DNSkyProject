@@ -106,6 +106,12 @@
     <Filter Include="Source Files\Game Color">
       <UniqueIdentifier>{04fe500a-9444-4682-aace-4645de4dbfa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\LZO">
+      <UniqueIdentifier>{6c06b978-df2c-4c58-a7d6-9e7de1ba379e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LZO\depends">
+      <UniqueIdentifier>{f84e946a-f9fc-47df-b5c1-608d1eb806c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EntryPoint.cpp">
@@ -257,6 +263,9 @@
     </ClCompile>
     <ClCompile Include="SendFunction.cpp">
       <Filter>Source Files\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="lzo.cpp">
+      <Filter>Source Files\LZO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -424,6 +433,15 @@
     </ClInclude>
     <ClInclude Include="SendFunction.h">
       <Filter>Source Files\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo.h">
+      <Filter>Source Files\LZO</Filter>
+    </ClInclude>
+    <ClInclude Include="portab.h">
+      <Filter>Source Files\LZO\depends</Filter>
+    </ClInclude>
+    <ClInclude Include="portab_a.h">
+      <Filter>Source Files\LZO\depends</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

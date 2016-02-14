@@ -7,6 +7,7 @@
 #include <conio.h>
 #include <time.h>
 #include "..\\..\\DNSkyProject\\vlizer.h"
+#include "lzo.h"
 #include "Header.h"
 #include <random>
 #include <stdio.h>
@@ -439,4 +440,35 @@ void decrypt_dnt(const string& s)
 	return;
 
 	
+}
+
+
+void encryptTEST(const string& s)
+{
+	string outputF = "encrypted_TEST\\" + s;
+	std::ifstream infile(s, std::ifstream::binary);
+
+	if (infile.is_open())
+	{
+		infile.seekg(0, ios::end);
+		int size = infile.tellg();
+		BYTE *buffer = new BYTE[size];
+		BYTE *outBuffer = new BYTE[size];
+		infile.seekg(0, ios::beg);	
+		infile.read((char*)buffer, size);
+		
+		DWORD NewSize = compress(buffer, size, outBuffer);
+
+
+		ofstream outfile;
+		outfile.open(outputF, ios::out | ios::binary);
+
+		outfile.write((char*)outBuffer, NewSize);
+		outfile.close();
+
+
+		infile.close();
+
+		free(buffer);
+	}
 }

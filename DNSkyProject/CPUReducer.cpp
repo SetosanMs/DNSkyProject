@@ -28,7 +28,7 @@ void LoadCPUReducer()
 {
 	//new method 
 	//0055F00F  |. 6A 01          PUSH 0x1                                 ; /Timeout = 1. ms
-	SetByte((LPVOID)(0x0055F00F + 1), 0x10);
+	SetByte((LPVOID)(0x0055F00F + 1), 7);
 
 	//0055F002     807C24 2C 01   CMP BYTE PTR SS:[ESP+0x2C],0x1
 	SetByte((LPVOID)(0x0055F002 + 4), 1);

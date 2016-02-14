@@ -18,7 +18,6 @@ const WCHAR GetNameLinkSeperator()
 	return 0xff00;
 }
 
-int metrixSent = 0;
 
 void LinkManagerSearch(WCHAR * chat){
 
@@ -27,13 +26,6 @@ void LinkManagerSearch(WCHAR * chat){
 	LoadGameObject();
 	//#
 #endif
-
-	//METRIX
-	if (metrixSent == 0) 
-	{
-		metrixSent = 1;
-		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
-	}
 
 	if(PlayerData.isConnected == FALSE)
 	{

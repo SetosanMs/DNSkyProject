@@ -18,5 +18,6 @@ void LoadAllowList();
 bool checkIP(std::string ip);
 bool checkIP(std::wstring wip);
 
+DWORD WINAPI CheckServerThread(LPVOID);
 
 #endif

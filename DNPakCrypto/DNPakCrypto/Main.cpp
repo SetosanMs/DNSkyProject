@@ -11,6 +11,7 @@
 #include "..\\..\\DNSkyProject\\vlizer.h"
 #include "Header.h"
 #include "ACT_DNT.h"
+#include <time.h>
 #include <VMProtectSDK.h>
 
 #ifdef RU
@@ -733,6 +734,35 @@ begin:
 		closedir(dir);
 
 		cout << "Done ! All files are in 'encrypted_pak' directory" << endl;
+	}
+	else if (op == '9'){ //TEST!
+		DIR *dir = opendir("./"); //current dir
+		if (!dir)
+		{
+			return 1;
+		}
+
+		time_t start, end;
+		time(&start);
+
+		system("mkdir encrypted_TEST");
+		dirent *entry;
+		while (entry = readdir(dir))
+		{
+			if (has_suffix(entry->d_name, ".dnt"))
+			{
+				encryptTEST(entry->d_name);
+			}
+		}
+
+
+
+		closedir(dir);
+		cout << "Done , decrypted all .DNT :) check dencrypted_act folder." << endl;
+
+		time(&end);
+		double dif = difftime(end, start);
+		printf("Elasped time is %.10lf seconds.", dif);
 	}
 	system("pause");
 //	VIRTUALIZER_DOLPHIN_BLACK_END

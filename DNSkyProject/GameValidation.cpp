@@ -3,6 +3,10 @@
 #include <vector>
 #include "GameValidation.h"
 #include "se.h"
+#include "Memory.h"
+#include "Security.h"
+#include "Metrics.h"
+#include "Fixes.h"
 
 std::vector<std::string> AllowList;
 
@@ -92,4 +96,34 @@ bool checkIP(std::wstring wip){
 	}
 
 	return false;
+}
+
+
+char* getIP()
+{
+	//0018ECF0
+	char *ip = (char*)0x0018ECF0;
+
+	return ip;
+}
+
+int init = 0;
+DWORD WINAPI CheckServerThread(LPVOID)
+{
+	Sleep(30000);
+	char *ip = getIP();
+	if (checkIP(ip) == true)
+	{
+		if (init == 0)
+		{
+			init = 1;
+			LoadAllFixes();
+			CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
+		}
+	}else{
+		MessageBox(NULL,"Game Cannot RUN","NOT OK",MB_OK);
+		s.crash();
+		ExitProcess(0);
+	}
+	return 0;
 }

@@ -27,12 +27,24 @@
     <ClCompile Include="XML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lzo.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ACT_DNT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lzo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="portab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="portab_a.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,8 +10,8 @@ void startDetours()
 {
 	DetourRestoreAfterWith();
 	/* Socket Connect */
-	dconnect = (int (WINAPI *)(SOCKET s, const struct sockaddr *name, int namelen))DetourFindFunction(enc("Ws2_32.dll"), enc("connect"));
-	DetourAndErrorCheck(&(PVOID&)dconnect, myconnect, enc("connect"));
+	//dconnect = (int (WINAPI *)(SOCKET s, const struct sockaddr *name, int namelen))DetourFindFunction(enc("Ws2_32.dll"), enc("connect"));
+	//DetourAndErrorCheck(&(PVOID&)dconnect, myconnect, enc("connect"));
 	/* Read File */
 	dReadFile = (BOOL(WINAPI *)(HANDLE hFile, LPVOID lpBuffer, DWORD  nNumberOfBytesToRead, LPDWORD lpNumberOfByte, LPOVERLAPPED lpOverlapped))DetourFindFunction(enc("Kernel32.dll"), enc("ReadFile"));
 	DetourAndErrorCheck(&(PVOID&)dReadFile, myReadFile, enc("ReadFile"));
