@@ -460,6 +460,7 @@ void encryptTEST(const string& s)
 		DWORD NewSize = compress(buffer, size, outBuffer);
 
 
+
 		ofstream outfile;
 		outfile.open(outputF, ios::out | ios::binary);
 
