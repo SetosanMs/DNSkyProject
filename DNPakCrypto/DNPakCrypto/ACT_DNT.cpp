@@ -15,8 +15,24 @@
 
 using namespace std;
 
+
+
+
+#include <vector>
+using namespace std;
+
+vector<unsigned char> intToBytes(DWORD paramInt)
+{
+	vector<unsigned char> arrayOfByte(4);
+	for (int i = 0; i < 4; i++)
+		arrayOfByte[3 - i] = (paramInt >> (i * 8));
+	return arrayOfByte;
+}
+
 void encrypt_act(const string& s)
 {
+
+
 	string outputF = "encrypted_act\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
 
@@ -453,13 +469,61 @@ void encryptTEST(const string& s)
 		infile.seekg(0, ios::end);
 		int size = infile.tellg();
 		BYTE *buffer = new BYTE[size];
-		BYTE *outBuffer = new BYTE[size];
+		BYTE *outBuffer = new BYTE[size*2];
 		infile.seekg(0, ios::beg);	
 		infile.read((char*)buffer, size);
-		
+
+
 		DWORD NewSize = compress(buffer, size, outBuffer);
+		//DWORD FileSize = size;
 
 
+		printf("Size of original file : %d\n",size);
+		ofstream outfile;
+		outfile.open(outputF, ios::out | ios::binary);
+
+		outfile.write((char*)outBuffer, NewSize); //bagam un intreg pt original file size
+		//outfile.write((char*)bFileSize, sizeof(bFileSize));  //original file size
+		outfile.close();
+
+
+		infile.close();
+		
+		free(outBuffer);
+		free(buffer);
+	}
+}
+
+void decryptTEST(const string &s)
+{
+
+	string outputF = "DEcrypted_TEST\\" + s;
+	std::ifstream infile(s, std::ifstream::binary);
+
+	if (infile.is_open())
+	{
+
+
+		infile.seekg(0, ios::end);
+		int size = infile.tellg();
+		BYTE *buffer = new BYTE[size];
+		infile.seekg(0, ios::beg);
+		infile.read((char*)buffer, size);
+
+		//printf("%x %x %x %x\n", buffer[size - 4], buffer[size - 3], buffer[size - 2], buffer[size-1]);
+		//DWORD OrigFileSize = (buffer[size-4] << 24) | (buffer[size - 3] << 16) | (buffer[size - 2] << 8) | (buffer[size-1]);
+		
+		BYTE *outBuffer = new BYTE[size*100];
+		
+		/*
+		BYTE OrigSize[4] = { 0 };
+		std::vector<BYTE> bytes = intToBytes(size);
+		for (int i = 0; i < bytes.size(); i++)
+		OrigSize[i] = bytes[i];
+		*/
+
+		//printf("decompress origsize: %d\n",OrigFileSize);
+		DWORD NewSize = decompress(buffer, size, outBuffer); //scoatem int din size
 
 		ofstream outfile;
 		outfile.open(outputF, ios::out | ios::binary);
@@ -470,6 +534,7 @@ void encryptTEST(const string& s)
 
 		infile.close();
 
+		free(outBuffer);
 		free(buffer);
 	}
 }

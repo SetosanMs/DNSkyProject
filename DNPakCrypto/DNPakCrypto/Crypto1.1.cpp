@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <Windows.h>
+#include <windows.h>
 #include <iostream>
 #include <fstream>
 #include <algorithm>

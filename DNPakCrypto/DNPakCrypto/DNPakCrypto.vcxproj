@@ -376,17 +376,17 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <OutDir>E:\DNSKY_Builds\decrypto</OutDir>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
@@ -395,44 +395,44 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_RELEASE|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_R_AH|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_D|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MSTERE_R_AH|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MSTERE_D|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CA_R_AH|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VTM_R|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_RELEASE|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
@@ -465,20 +465,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRU|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='THA_R_AH_PAK|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='THA_DEBUG|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRU|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
@@ -498,8 +498,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mac|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>D:\decrypto</OutDir>
-    <LibraryPath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\;C:\Program Files\VMProtect Lite\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
-    <IncludePath>C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\include;C:\Users\K\Documents\Visual Studio 2013\Projects\DNSkyProject\lzo-2.09\src;C:\Program Files\VMProtect Lite\Include\C;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);</LibraryPath>
+    <IncludePath>..\..\lzo-2.09\include;..\..\lzo-2.09\src;..\..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mac|x64'">
     <LinkIncremental>false</LinkIncremental>

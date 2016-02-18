@@ -749,9 +749,38 @@ begin:
 		dirent *entry;
 		while (entry = readdir(dir))
 		{
-			if (has_suffix(entry->d_name, ".dnt"))
+			if (has_suffix(entry->d_name, ".dnt") || has_suffix(entry->d_name, ".act"))
 			{
 				encryptTEST(entry->d_name);
+			}
+		}
+
+
+
+		closedir(dir);
+		cout << "Done , decrypted all .DNT :) check dencrypted_act folder." << endl;
+
+		time(&end);
+		double dif = difftime(end, start);
+		printf("Elasped time is %.10lf seconds.", dif);
+	}
+	else if (op == 'a'){ //TEST!
+		DIR *dir = opendir("./"); //current dir
+		if (!dir)
+		{
+			return 1;
+		}
+
+		time_t start, end;
+		time(&start);
+
+		system("mkdir decrypted_TEST");
+		dirent *entry;
+		while (entry = readdir(dir))
+		{
+			if (has_suffix(entry->d_name, ".dnt") )
+			{
+				decryptTEST(entry->d_name);
 			}
 		}
 

@@ -46,12 +46,12 @@ DWORD compress(BYTE* data,DWORD size,BYTE* out)
 		printf("internal error - compression failed: %d\n", r);
 		return 2;
 	}
-	/* check for an incompressible block */
-	if (out_len >= size)
-	{
+	/* Compresses but size is greater! happends to 1-2kb files. */
+/*	if (out_len >= size) 
+	{	
 		printf("This block contains incompressible data.\n");
 		return 0;
-	}
+	}*/
 
 	lzo_free(wrkmem);
 
@@ -59,7 +59,44 @@ DWORD compress(BYTE* data,DWORD size,BYTE* out)
 }
 
 
-DWORD decompress(BYTE* data, DWORD size)
+DWORD decompress(BYTE* data, DWORD size,BYTE* in)
 {
+	int r;
+//	lzo_bytep in;
+	//lzo_bytep out;
+	//lzo_voidp wrkmem;
+	lzo_uint out_len;
+	lzo_uint new_len;
+
+
+
+	if (lzo_init() != LZO_E_OK)
+	{
+		printf("internal error - lzo_init() failed !!!\n");
+		printf("(this usually indicates a compiler bug - try recompiling\nwithout optimizations, and enable '-DLZO_DEBUG' for diagnostics)\n");
+		return 4;
+	}
+
+	//initializam memoria de lucru lol...
+	//wrkmem = (lzo_voidp)xmalloc(LZO1X_1_MEM_COMPRESS);
+
+
+	//decompresie
+	new_len = size;
+	r = lzo1x_decompress(data, size, in, &new_len, NULL);
+	if (r == LZO_E_OK)
+		printf("decompressed %lu bytes\n",
+		(unsigned long)out_len);
+	else
+	{
+		/* this should NEVER happen */
+		printf("internal error - decompression failed: %d\n", r);
+		return 1;
+	}
+
+
+//	lzo_free(wrkmem);
+
+	return new_len;
 
 }
