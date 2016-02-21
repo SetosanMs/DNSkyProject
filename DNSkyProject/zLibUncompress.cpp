@@ -22,6 +22,13 @@ const DWORD Call9 = 0x00BE5CA0;
 DWORD PointerFisier = 0;
 DWORD PointerData = 0;
 DWORD PointerDataSize = 0;
+BOOL isCrypted = FALSE;
+FileVersion result = ANOTHERFILE;
+DWORD EAXSalvat = 0;
+DWORD EDXSalvat = 0;
+DWORD ECXSalvat = 0;
+DWORD AdresaPointer = 0;
+DWORD AdresaSizePointer = 0;
 Naked(etOpenFile)
 {
 	_asm{
@@ -76,13 +83,13 @@ JUMP2 :
 			MOV DWORD PTR SS : [ESP + 0x14], EDI
 
 			MOV PointerDataSize, EDI
-
+			
 			PUSH ESI
 			MOV EAX, EBP
 			LEA EDI, DWORD PTR SS : [ESP + 0x14]
 			MOV DWORD PTR SS : [ESP + 0x1C], ESI
 			CALL Call6 //decompress
-			ADD ESP, 0x4
+			
 			/*aici undeva ma infig*/
 			PUSHAD
 
@@ -90,12 +97,60 @@ JUMP2 :
 			MOV PointerFisier, EBX
 	}
 
-	//printf("[ZLIB]LoadFile(SIZE %d): %s \n", PointerDataSize, (CHAR*)PointerFisier);
 	FileCrypt.CheckFileType((char*)PointerFisier, (BYTE*)PointerData, PointerDataSize);
+	//printf("[ZLIB]LoadFile(SIZE %d): %s \n", PointerDataSize, (CHAR*)PointerFisier);
+	/* DEPRECATED.
+	result = FileCrypt.CheckFileType((char*)PointerFisier, (BYTE*)PointerData, PointerDataSize);
+	if (result > 0 && result < 10)
+	{
+		isCrypted = TRUE;
+		decrypt_LZO((BYTE*)PointerData, PointerDataSize, result);
+		//AdresaPointer = (DWORD)&dBuffer[fCount];
+		//AdresaSizePointer = (DWORD)&fSizeBuffer[fCount];
+		//fCount++;
+	}
+	else{
+		//isCrypted = FALSE;
+	}*/
 
 
 	_asm{
-			POPAD
+		POPAD
+/*
+		CMP isCrypted, 1
+		JE WriteNewFile
+		JMP ContinueWriteFile
+
+WriteNewFile:
+		//set new pointer to esi
+		//set new size
+		MOV EAXSalvat, EAX
+		//MOV EDXSalvat, EDX
+		MOV ECXSalvat, ECX
+
+
+		MOV EAX, AdresaSizePointer
+		MOV ECX, DWORD PTR DS : [EAX]
+		//MOV DWORD PTR SS : [ESP + 0x10], ECX //orig size
+		MOV DWORD PTR SS : [ESP + 0x14], ECX //decompress size
+		MOV DWORD PTR SS : [ESP + 0x18], ECX //decompress size
+		MOV DWORD PTR SS : [EBX + 0x104], ECX //decompress size
+
+		MOV EAX, AdresaPointer
+		MOV ECX, DWORD PTR DS : [EAX]
+		MOV DWORD PTR SS : [ESP + 0x1C], ECX //FilePointer
+		//MOV DWORD PTR SS : [ESP], ECX //FilePointer
+		//MOV ESI, ECX
+
+		MOV EAX, EAXSalvat
+		//MOV EDX, EDXSalvat
+		MOV ECX, ECXSalvat
+		//ADD fCount, 1 // fcount++ :)
+		JMP ContinueWriteFile
+
+		
+ContinueWriteFile:*/
+			ADD ESP, 0x4
 			TEST EAX, EAX
 			JE ASSERT1 //;  apelat dupa uncompress, reg: ESI + 8 poate ?
 			PUSH EBP
@@ -164,7 +219,7 @@ ASSERT1_CONTINUE3:
 
 void zlibHook()
 {
-	SetRange((LPVOID)0x00BE6650, 0x132, ASM::NOP); // 00BE6650  /$ 83EC 0C        SUB ESP,0xC                              ;  zlib uncompress
+	SetRange((LPVOID)0x00BE6650, 0x133, ASM::NOP); // 00BE6650  /$ 83EC 0C        SUB ESP,0xC                              ;  zlib uncompress
 	SetOp((LPVOID)0x00BE6650, (LPVOID)etOpenFile, ASM::JMP);
 }
 

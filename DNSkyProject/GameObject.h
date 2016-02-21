@@ -1,4 +1,6 @@
 void LoadGameObject();
+DWORD getPointer(const DWORD Pointer, const DWORD Offset);
+char *getIPPointer();
 
 struct PlayerDataStruct{
 	bool isConnected = 0;

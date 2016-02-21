@@ -49,7 +49,8 @@ void ChangeCryptoSeedKey()
 
 #ifdef CHN
 #ifdef DEBUG
-	SetDword((LPVOID)(0x00407091 + 1), 0x13377331);
+	SetDword((LPVOID)(0x00407091 + 1), 0x93854782);
+	//SetDword((LPVOID)(0x00407091 + 1), 0x13377331);
 #else
 	SetDword((LPVOID)(0x00407091 + 1), 0x92854781);
 #endif
@@ -60,7 +61,12 @@ void ChangeCryptoSeedKey()
 #endif
 
 #ifdef THA
-	SetDword((LPVOID)(0x00407091 + 1), 0x93854782);
+	SetDword((LPVOID)(0x00407091 + 1), 0x13377331);
+	//SetDword((LPVOID)(0x00407091 + 1), 0x93854782);
+#endif
+
+#ifdef RU
+	SetDword((LPVOID)(0x00407091 + 1), 0x13377331);
 #endif
 	//VMProtectEnd();
 }

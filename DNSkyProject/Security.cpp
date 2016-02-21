@@ -17,7 +17,7 @@
 #elif CHN
 #define EXECUTABLE_CRC 0x72A08A50
 #elif CHN_MSTERE
-#define EXECUTABLE_CRC  0xa7aa430f //dbg: 0x9b8b16ea
+#define EXECUTABLE_CRC 0x9b8b16ea // 0xa7aa430f //dbg: 0x9b8b16ea
 #else
 #define EXECUTABLE_CRC 0xFFFFFFFF
 #endif

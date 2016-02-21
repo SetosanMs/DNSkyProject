@@ -108,7 +108,7 @@ unsigned long WINAPI LoadFilterFile(LPVOID)
 			if (!dir)
 			{
 				////VIRTUALIZER_DOLPHIN_WHITE_START
-				s.crash();
+				//s.crash();
 				MessageBoxA(NULL, enc("Cannot Open Directory For Read."), enc("Error"), MB_ICONERROR);
 				ExitProcess(0);
 				return 0;
@@ -123,7 +123,7 @@ unsigned long WINAPI LoadFilterFile(LPVOID)
 					////VIRTUALIZER_DOLPHIN_WHITE_START
 					if (AllowedFilesVector.find(entry->d_name) == AllowedFilesVector.end()) //? test
 					{
-						s.crash();
+						//s.crash();
 						char buff[128];
 						wsprintf(buff, enc("Please remove %s from your game directory and start game again!"), entry->d_name);
 						MessageBoxA(NULL, buff, enc("Error"), MB_ICONERROR);
@@ -148,7 +148,7 @@ unsigned long WINAPI LoadFilterFile(LPVOID)
 					if (FileCRC != AllowedFilesVector[FilesToCheck[i]])
 					{
 
-						s.crash();
+						//s.crash();
 						char buff[128];
 						wsprintf(buff, enc("File %s is damaged , remove it and start game again!"), FilesToCheck[i].c_str());
 						MessageBoxA(NULL, buff, enc("Error"), MB_ICONERROR);

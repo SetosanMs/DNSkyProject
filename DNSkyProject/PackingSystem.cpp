@@ -6,7 +6,7 @@
 #include "Misc.h"
 #include "PackingSystem.h"
 #include "vlizer.h"
-
+#include "lzo.h"
 
 
 PackingSystem Packing;
@@ -151,30 +151,45 @@ void PackingSystem::DecryptData(BYTE* data, DWORD size)
 
 //---------------------------------------------------------------------
 ///added 07.02.2016 alin1337
-void PackFile::CheckFileType(char* filename, BYTE* data, DWORD size)
+FileVersion PackFile::CheckFileType(char* filename, BYTE* data, DWORD size)
 {
 	if (has_suffix(filename, ".act"))
 	{
-		isPacked(RALUKAT_ACT, data, size);
-		return;
+		if (data[0] == 0xDD)
+		{
+			((BYTE*)data)[0] = 0x00;
+			decrypt_LZO(data, size);
+			return RALUKAT_ACT;
+		}
 	}
 	
 	if (has_suffix(filename, ".dnt"))
 	{
-		isPacked(RALUKAT_DNT, data, size);
-		return;
+		if (data[3] == 0xDD)
+		{
+			((BYTE*)data)[3] = 0x00;
+			decrypt_LZO(data, size);
+			return RALUKAT_DNT;
+		}
 	}
 
 	if (has_suffix(filename, ".xml"))
 	{
-		isPacked(RALUKAT_XML, data, size);
-		return;
+		if (data[size-7] == 0xDD)
+		{
+			((BYTE*)data)[size-7] = 0x00;
+			decrypt_LZO(data, size);
+			return RALUKAT_XML;
+		}
 	}
 	
+
+	return ANOTHERFILE;
 }
 
 void PackFile::isPacked(FileVersion version,  BYTE* data, DWORD size)
 {
+#ifdef DEPRECATED
 	if (version == RALUKAT_ACT)
 	{
 		if (data[0x15] == 0xDA)
@@ -206,6 +221,7 @@ void PackFile::isPacked(FileVersion version,  BYTE* data, DWORD size)
 			return;
 		}
 	}
+#endif
 }
 
 //DNT
@@ -304,4 +320,32 @@ void PackFile::decrypt_XML(BYTE* data, DWORD size)
 	}
 
 	((BYTE*)data)[size - 1] = 0x00;
+}
+
+
+
+////LZO algorithm 19.02.2016
+bool decrypt_LZO(BYTE* data, DWORD size)
+{
+	data[size - 6] ^= cheimagice[0];
+	data[size - 5] ^= cheimagice[1];
+	data[size - 4] ^= cheimagice[2];
+	data[size - 3] ^= cheimagice[3];
+	data[size - 2] ^= cheimagice[4];
+	data[size - 1] ^= cheimagice[5];
+
+	DWORD OrigFileSize = (data[size - 4] << 24) | (data[size - 3] << 16) | (data[size - 2] << 8) | (data[size - 1]);
+
+	BYTE* cData = new BYTE[OrigFileSize];
+	memcpy(cData, data, OrigFileSize);
+	decompress(cData, OrigFileSize, data);
+	free(cData);
+	return true;
+
+
+	//nu trebuie sa se intample niciodata!!
+#ifdef DEBUG
+	printf("HIT FALSE DECRYPT!!\n");
+#endif
+	return false;
 }

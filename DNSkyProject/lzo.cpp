@@ -1,16 +1,16 @@
 #include <Windows.h>
 #include <stdio.h>
+#include <vector>
 #include <lzo/lzoconf.h>
 #include <lzo/lzo1x.h>
 #include "lzo.h"
+#include "se.h"
+#include "PackingSystem.h"
 
 static const char *progname = NULL;
 #define WANT_LZO_MALLOC 1
 #define WANT_XMALLOC 1
-
 #include "portab.h"
-
-
 #pragma comment(lib,"lzo2.lib")
 
 DWORD compress(BYTE* data, DWORD size, BYTE* out)
@@ -59,6 +59,7 @@ DWORD compress(BYTE* data, DWORD size, BYTE* out)
 }
 
 
+
 DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 {
 	int r;
@@ -69,11 +70,9 @@ DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 	lzo_uint new_len;
 
 
-
 	if (lzo_init() != LZO_E_OK)
 	{
-		printf("internal error - lzo_init() failed !!!\n");
-		printf("(this usually indicates a compiler bug - try recompiling\nwithout optimizations, and enable '-DLZO_DEBUG' for diagnostics)\n");
+		printf("internal error - crpyt_init() failed !!!\n");
 		return 4;
 	}
 
@@ -82,20 +81,25 @@ DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 
 
 	//decompresie
-	new_len = size;
+	new_len = 0;
 	r = lzo1x_decompress(data, size, in, &new_len, NULL);
+#ifdef DEBUG
 	if (r == LZO_E_OK)
-		printf("decompressed %lu bytes\n",
-		(unsigned long)out_len);
+
+	{
+	//	printf("decompressed %lu bytes\n",
+	//		(unsigned long)out_len);
+	}
 	else
 	{
 		/* this should NEVER happen */
 		printf("internal error - decompression failed: %d\n", r);
 		return 1;
 	}
+#endif
 
-
-	//	lzo_free(wrkmem);
+	//fCount++;
+	//lzo_free(wrkmem);
 
 	return new_len;
 

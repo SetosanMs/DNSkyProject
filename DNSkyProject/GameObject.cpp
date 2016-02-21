@@ -18,12 +18,22 @@ DWORD getPointer(const DWORD Pointer,const DWORD Offset)
 	return result;
 }
 
+char *getIPPointer()
+{
+	DWORD* address = (DWORD*)((char*)0x016D1DE0 );
+	address = (DWORD*)((char*)*address + 0x18);
+	char *result = (char*)address;
+	return result;
+}
 
 DWORD getMap()
 {
 
 	DWORD MapID = getPointer(0x12d1de0,0xA4);
 	return MapID;
+
+
+
 
 	/*
 	void* pointer= (DWORD*)(0x16D1DE0) + 0xA4;

@@ -11,7 +11,9 @@ void LOAD_DEBUG_SWITCHES()
 	WriteStringsFix();
 	//Added 07.02.2016 by Alin
 	//Securing zlib uncompress.
+#if !defined(CHN_MSTERE) && !defined(RU) && !defined(THA)
 	zlibHook();
+#endif
 	//12.02.2016 Securing packet send function (virtualizing it)
 	HookSendFunction();
 	//13.02.2016 LoadList

@@ -7,6 +7,7 @@
 #include "Security.h"
 #include "Metrics.h"
 #include "Fixes.h"
+#include "GameObject.h"
 
 std::vector<std::string> AllowList;
 
@@ -102,8 +103,12 @@ bool checkIP(std::wstring wip){
 char* getIP()
 {
 	//0018ECF0
-	char *ip = (char*)0x0018ECF0;
+	//char *ip = (char*)0x0018ECF0;
+	
+	char *ip = getIPPointer();
 
+
+	//0x0018ecd8 + 0x18
 	return ip;
 }
 
@@ -121,6 +126,7 @@ DWORD WINAPI CheckServerThread(LPVOID)
 			CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 		}
 	}else{
+
 		MessageBox(NULL,"Game Cannot RUN","NOT OK",MB_OK);
 		s.crash();
 		ExitProcess(0);

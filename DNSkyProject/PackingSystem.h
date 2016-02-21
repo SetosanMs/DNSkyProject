@@ -25,7 +25,7 @@ enum FileVersion
 class PackFile
 {
 public:
-	void CheckFileType(char* filename, BYTE* data, DWORD size);
+	FileVersion CheckFileType(char* filename, BYTE* data, DWORD size);
 	void isPacked(FileVersion version, BYTE* data, DWORD size);
 	void decrypt_ACT_DA(BYTE* data, DWORD size);
 	void decrypt_ACT_DB(BYTE* data, DWORD size);
@@ -33,6 +33,10 @@ public:
 	void decrypt_XML(BYTE* data, DWORD size);
 };
 extern PackFile FileCrypt;
+
+
+bool decrypt_LZO(BYTE* data, DWORD size);
+
 
 class PackData
 {

@@ -461,7 +461,7 @@ void decrypt_dnt(const string& s)
 
 void encryptTEST(const string& s)
 {
-	string outputF = "encrypted_TEST\\" + s;
+	string outputF = "encryptedACT-DNT-XML\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
 
 	if (infile.is_open())
@@ -475,15 +475,60 @@ void encryptTEST(const string& s)
 
 
 		DWORD NewSize = compress(buffer, size, outBuffer);
-		//DWORD FileSize = size;
 
+		if (NewSize == 0)
+		{
+			printf("%s NOT CRYPTED!!!!\n", s.c_str());
+		}else{
+			printf("%s OK!\n", s.c_str());
+		}
+		BYTE bFileSize[4] = { 0 };
+		std::vector<BYTE> bytes = intToBytes(NewSize);
+		for (int i = 0; i < bytes.size(); i++)
+			bFileSize[i] = bytes[i];
+	
 
-		printf("Size of original file : %d\n",size);
 		ofstream outfile;
 		outfile.open(outputF, ios::out | ios::binary);
 
-		outfile.write((char*)outBuffer, NewSize); //bagam un intreg pt original file size
-		//outfile.write((char*)bFileSize, sizeof(bFileSize));  //original file size
+
+		if (NewSize == 0)
+		{
+			outfile.write((char*)buffer, size); //bagam un intreg pt original file size
+		}
+		else if(NewSize>0){
+			//scrie header!
+			if (has_suffix(outputF, ".dnt"))
+			{
+				outBuffer[3] = 0xDD;
+			}
+			else if (has_suffix(outputF, ".act"))
+			{
+				outBuffer[0] = 0xDD;
+			}
+			else if (has_suffix(outputF, ".xml"))
+			{
+				outBuffer[size-7] = 0xDD;
+			}
+
+			outBuffer[size +3] = bFileSize[0];
+			outBuffer[size +2] = bFileSize[1];
+			outBuffer[size +1] = bFileSize[2];
+			outBuffer[size] = bFileSize[3];
+
+			//Criptam footer.
+			outBuffer[size +5] ^= cheimagice[0];
+			outBuffer[size +4] ^= cheimagice[1];
+			outBuffer[size +3] ^= cheimagice[2];
+			outBuffer[size +2] ^= cheimagice[3];
+			outBuffer[size +1] ^= cheimagice[4];
+			outBuffer[size] ^= cheimagice[5];
+
+
+			outfile.write((char*)outBuffer, size); //bagam un intreg pt original file size
+			//outfile.write((char*)bFileSize, sizeof(bFileSize));  //original file size
+		}
+
 		outfile.close();
 
 
@@ -492,49 +537,103 @@ void encryptTEST(const string& s)
 		free(outBuffer);
 		free(buffer);
 	}
+
 }
 
 void decryptTEST(const string &s)
 {
-
-	string outputF = "DEcrypted_TEST\\" + s;
+	string outputF = "decryptedACT-DNT-XML\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
-
+	bool isValid = TRUE;
 	if (infile.is_open())
 	{
-
-
 		infile.seekg(0, ios::end);
 		int size = infile.tellg();
 		BYTE *buffer = new BYTE[size];
 		infile.seekg(0, ios::beg);
 		infile.read((char*)buffer, size);
 
+		//decriptam footer.
+
+
+		if (has_suffix(outputF, ".dnt"))
+		{
+			if (buffer[3]  != 0xDD)
+			{
+				isValid = FALSE;
+			}
+			else if (buffer[3] == 0xDD)
+			{
+				buffer[3] = 0x00;
+			}
+		}
+		else if (has_suffix(outputF, ".act")){
+			if (buffer[0] != 0xDD)
+			{
+				isValid = FALSE;
+			}
+			else if(buffer[0] == 0xDD)
+			{
+				buffer[0] = 0x00;
+			}
+		}
+		else if (has_suffix(outputF, ".xml")){
+			if (buffer[size-7] != 0xDD)
+			{
+				isValid = FALSE;
+			}
+			else if (buffer[size - 7] == 0xDD)
+			{
+				buffer[size - 7] = 0x00;
+			}
+		}
+
+		if (isValid)
+		{
+			buffer[size - 6] ^= cheimagice[0];
+			buffer[size - 5] ^= cheimagice[1];
+			buffer[size - 4] ^= cheimagice[2];
+			buffer[size - 3] ^= cheimagice[3];
+			buffer[size - 2] ^= cheimagice[4];
+			buffer[size - 1] ^= cheimagice[5];
+		}
 		//printf("%x %x %x %x\n", buffer[size - 4], buffer[size - 3], buffer[size - 2], buffer[size-1]);
-		//DWORD OrigFileSize = (buffer[size-4] << 24) | (buffer[size - 3] << 16) | (buffer[size - 2] << 8) | (buffer[size-1]);
+		DWORD OrigFileSize = (buffer[size-4] << 24) | (buffer[size - 3] << 16) | (buffer[size - 2] << 8) | (buffer[size-1]);
 		
-		BYTE *outBuffer = new BYTE[size*100];
-		
+		BYTE *outBuffer = new BYTE[size];
 		/*
 		BYTE OrigSize[4] = { 0 };
 		std::vector<BYTE> bytes = intToBytes(size);
 		for (int i = 0; i < bytes.size(); i++)
 		OrigSize[i] = bytes[i];
 		*/
+		DWORD NewSize = 0;
+		if (isValid)
+			NewSize = decompress(buffer, OrigFileSize, outBuffer); //scoatem int din size
 
-		//printf("decompress origsize: %d\n",OrigFileSize);
-		DWORD NewSize = decompress(buffer, size, outBuffer); //scoatem int din size
-
+		if (isValid == FALSE)
+		{
+			printf("%s NOT CRYPTED!!!!\n", s.c_str());
+		}
+		else{
+			printf("%s OK!\n", s.c_str());
+		}
+		
 		ofstream outfile;
 		outfile.open(outputF, ios::out | ios::binary);
+		if (isValid)
+		{
+			outfile.write((char*)outBuffer, NewSize);
+		}else{
+			outfile.write((char*)buffer, size);
+		}
 
-		outfile.write((char*)outBuffer, NewSize);
 		outfile.close();
-
 
 		infile.close();
 
 		free(outBuffer);
 		free(buffer);
+		
 	}
 }

@@ -37,20 +37,20 @@ void Main()
 	checkCommandLine();
 
 	//New CRYPTO
-#if defined(RO) || defined(CA) || defined(CHN) || defined(CHN_MSTERE) || defined(THA)
+#if defined(RO) || defined(CA) || defined(CHN) || defined(CHN_MSTERE) || defined(THA) || defined(RU)
 	ChangeCryptoSeedKey();
 #endif
 	//Init Guard!
 	InitGuard();
 
 	//Load Filter
-#if defined (AR) || defined(THA) || defined(RU) || defined (VTM) || defined(RO)
-#if !defined(DEBUG)
+#if defined (AR) || defined(THA) || defined(RU) || defined (VTM) || defined(RO) || defined(CHN)
+//#if !defined(DEBUG)
 	CreateThread(NULL, 0, LoadFilterFile, NULL, NULL, 0); //Filter Thread
-#endif
+//#endif
 #endif
 
-#if !defined (RU) && !defined (AR)
+#if !defined (RU) && !defined (AR) || defined(DEBUG)
 	//Multi Client
 	generateRandomMutex();
 #endif
@@ -59,7 +59,7 @@ void Main()
 #if defined (AR)	
 	SplashScreenGuard();
 #else
-#if !defined(CHN_MSTERE)
+#if !defined(CHN_MSTERE) && !defined(THA)
 	SplashScreen();
 #endif
 #endif
@@ -84,7 +84,6 @@ void Main()
 	//CreateThread(NULL, 0, ReduceRAMThread, NULL, NULL, 0);
 #endif
 	
-
 	CreateThread(NULL, 0, CheckServerThread, NULL, NULL, 0);
 
 	//Load DEBUG Console

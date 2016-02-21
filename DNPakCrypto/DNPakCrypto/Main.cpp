@@ -457,7 +457,7 @@ int main(int argc, char *argv[])
     string path;
  
 	cout << "DragonNest custom crypto by Alin1337 special thanks to vfire2" << endl;
-	cout << "Bersion :: 1.4-07.02.2016 :: Motto: Ami is Love. Ami is life." << endl;
+	cout << "Version :: 1.6 :: 20.02.2016 :: Motto: Ami is Love. Ami is life." << endl;
 
 	//VIRTUALIZER_DOLPHIN_BLACK_START
 	VMProtectBeginMutation("Password Check");
@@ -502,14 +502,14 @@ begin:
 	cout << "Welcome dear." << endl;
 	cout << endl;
 	cout << "----------------------------------" << endl;
-	cout << "1 = Crypt *.ACT" << endl;
-	cout << "2 = DECrypt *.ACT" << endl;
-	cout << "----------------------------------" << endl;
-	cout << "3 = Crypt *.DNT" << endl;
-	cout << "4 = DECrypt *.DNT" << endl;
+	cout << "1 = Crypt *.ACT/*.DNT/*.XML v2" << endl;
+	cout << "2 = DECrypt *.ACT/*.DNT/*.XML v2" << endl;
+	/*cout << "----------------------------------" << endl;
+	cout << "3 = Crypt *.DNT v2" << endl;
+	cout << "4 = DECrypt *.DNT v2" << endl;
 	cout << "----------------------------------" << endl;
 	cout << "5 = Crypt .XML" << endl;
-	cout << "6 = DECrypt .XML" << endl;
+	cout << "6 = DECrypt .XML" << endl;*/
 	cout << "----------------------------------" << endl;
 	cout << "7 = Crypt .PAK v2 (Less encryption)" << endl;
 #ifdef RO
@@ -519,8 +519,90 @@ begin:
 	cout << "Enter Option: ";
 	int op = cin.get();
 
+	if (op == '1')
+	{
+		DIR *dir = opendir("./"); //current dir
+		if (!dir)
+		{
+			return 1;
+		}
 
-	if (op == '1')  //TBD ECRYPT ACT
+		time_t start, end;
+		time(&start);
+		int act = 0, dnt = 0, xml = 0;
+
+		system("mkdir encryptedACT-DNT-XML");
+		dirent *entry;
+		while (entry = readdir(dir))
+		{
+			if (has_suffix(entry->d_name, ".dnt"))
+			{
+				encryptTEST(entry->d_name);
+				dnt++;
+			}
+			if ( has_suffix(entry->d_name, ".act"))
+			{
+				encryptTEST(entry->d_name);
+				act++;
+			}
+			if (has_suffix(entry->d_name, ".xml"))
+			{
+				encryptTEST(entry->d_name);
+				xml++;
+			}
+		}
+
+
+
+		closedir(dir);
+		cout << "Done , encrypted DNT: " << dnt << " ACT: " << act << " XML: " << xml << " :) check encryptedACT-DNT-XML folder." << endl;
+
+		time(&end);
+		double dif = difftime(end, start);
+		printf("Elasped time is %.10lf seconds.", dif);
+	}else	if (op == '2')
+	{
+		DIR *dir = opendir("./"); //current dir
+		if (!dir)
+		{
+			return 1;
+		}
+
+		time_t start, end;
+		time(&start);
+		int act = 0, dnt = 0, xml = 0;
+		
+		system("mkdir decryptedACT-DNT-XML");
+		dirent *entry;
+		while (entry = readdir(dir))
+		{
+			if (has_suffix(entry->d_name, ".dnt"))
+			{
+				decryptTEST(entry->d_name);
+				dnt++;
+			}
+			if (has_suffix(entry->d_name, ".act"))
+			{
+				decryptTEST(entry->d_name);
+				act++;
+			}
+			if (has_suffix(entry->d_name, ".xml"))
+			{
+				decryptTEST(entry->d_name);
+				xml++;
+			}
+		}
+
+
+
+		closedir(dir);
+		cout << "Done , decrypted DNT: " << dnt << " ACT: " << act << " XML: " << xml << " :) check decryptedACT-DNT-XML folder." << endl;
+
+		time(&end);
+		float dif = difftime(end, start);
+		printf("Elasped time is %.10lf seconds.", dif);
+	}
+	/*if (op == '1')  //TBD ECRYPT ACT
 	{
 
 		DIR *dir = opendir("./"); //current dir
@@ -651,7 +733,7 @@ begin:
 		closedir(dir);
 		cout << "Done , decrypted all .xml :) check decrypted_xml folder." << endl;
 
-	}
+	} */
 	else if (op == '7') // .PAK
 	{
 		DIR *dir = opendir("./"); //current dir

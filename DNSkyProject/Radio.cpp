@@ -24,7 +24,7 @@ std::wstring CurrentSong;
 std::wstring LastSongPlayed;
 
 
-#ifdef THA
+#if defined(THA) || defined(RU)
 char url[255];
 #else
 char *url = "http://203.150.228.195:8014/listen.pls";
@@ -40,7 +40,6 @@ void LoadRadioFile()
 	if (FileExists(enc(".\\Radio.dat")))
 	{
 		char tempu[255];
-		
 		GetPrivateProfileString("RALUKAT", "URL", enc("http://stream.r-a-d.io/main.mp3"), tempu, 255, enc(".\\Radio.dat"));
 		strcpy(url, tempu);
 

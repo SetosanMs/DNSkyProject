@@ -21,12 +21,12 @@ DWORD compress(BYTE* data,DWORD size,BYTE* out)
 	//lzo_bytep out;
 	lzo_voidp wrkmem;
 	lzo_uint out_len;
-	lzo_uint new_len;
+	//lzo_uint new_len;
 
 
 	if (lzo_init() != LZO_E_OK)
 	{
-		printf("internal error - lzo_init() failed !!!\n");
+		printf("internal error - init() failed !!!\n");
 		printf("(this usually indicates a compiler bug - try recompiling\nwithout optimizations, and enable '-DLZO_DEBUG' for diagnostics)\n");
 		return 4;
 	}
@@ -37,6 +37,7 @@ DWORD compress(BYTE* data,DWORD size,BYTE* out)
 
 	//folosind lzo1x_1 compress algorithm
 	r = lzo1x_1_compress(data, size, out, &out_len, wrkmem);
+#ifdef DEBUG 
 	if (r == LZO_E_OK)
 		printf("compressed %lu bytes into %lu bytes\n",
 		(unsigned long)size, (unsigned long)out_len);
@@ -46,12 +47,14 @@ DWORD compress(BYTE* data,DWORD size,BYTE* out)
 		printf("internal error - compression failed: %d\n", r);
 		return 2;
 	}
+#endif
 	/* Compresses but size is greater! happends to 1-2kb files. */
-/*	if (out_len >= size) 
+	if (out_len >= size) 
 	{	
 		printf("This block contains incompressible data.\n");
+	//	lzo_free(wrkmem);
 		return 0;
-	}*/
+	}
 
 	lzo_free(wrkmem);
 
@@ -67,7 +70,6 @@ DWORD decompress(BYTE* data, DWORD size,BYTE* in)
 	//lzo_voidp wrkmem;
 	lzo_uint out_len;
 	lzo_uint new_len;
-
 
 
 	if (lzo_init() != LZO_E_OK)
