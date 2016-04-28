@@ -15,6 +15,9 @@ void WriteStringsFix()
 	const char * machina_skill_1st = enc("machina_skill_1st_patrona.act");
 	const char * machina_skill_2st1 = enc("machina_skill_2st_defensio.act");
 	const char * machina_skill_2st2 = enc("machina_skill_2st_ruina.act");
+
+	const char * silver_skill_1st = enc("archer_skill_1st_hunter.act");
+	const char * silver_skill_2nd = enc("archer_skill_2nd_silverfox.act");
 	//Create Character
 	const char * lenceaCreateButton1 = enc("ID_RBT_ASTA");
 	const char * lenceaCreateButton2 = enc("ID_STATIC_LENCEA");
@@ -35,6 +38,8 @@ void WriteStringsFix()
 	const char * machina = enc("Machina");
 	const char * machinalower = enc("machina");
 	const char * machinaupper = enc("MACHINA");
+
+
 
 	//lencea
 	WriteMemory((PVOID)0x01F21651, (LPVOID)lencea_skill_1st, strlen(lencea_skill_1st));
@@ -73,4 +78,8 @@ void WriteStringsFix()
 
 	//avenger
 	WriteMemory((PVOID)0x01F22880, (LPVOID)avengerCreateButton2, strlen(avengerCreateButton2));
+
+	//silver hunter skills
+	WriteMemory((PVOID)0x01F228C0, (LPVOID)silver_skill_1st, strlen(silver_skill_1st));
+	WriteMemory((PVOID)0x01F228F0, (LPVOID)silver_skill_2nd, strlen(silver_skill_2nd));
 }

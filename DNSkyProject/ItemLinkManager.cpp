@@ -23,7 +23,7 @@ void LinkManagerSearch(WCHAR * chat){
 
 #ifdef DEBUG
 	//Game OBJ Init.
-	LoadGameObject();
+	//LoadGameObject();
 	//#
 #endif
 

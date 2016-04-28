@@ -45,19 +45,21 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 
 
 	//METRIX
+#if defined(METRIX)
 	if (metrixSent == 0) 
 	{
 		metrixSent = 1;
-		CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
+		//CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 	}
+#endif
 
 
 
-#if !defined(RO) || defined(DEBUG) && !defined(RD)
+#if !defined(RO) || defined(DEBUG) && !defined(RD) 
 	AllocatedIP = sender;
 #endif
 
-#if defined(RO) && !defined(DEBUG) || defined(RD)
+#if defined(RO) && !defined(DEBUG) || defined(RD) 
 	std::map<std::string, std::string> IPList;
 	IPList["172.16.251.10"] = enc("31.186.251.198");
 	IPList["172.16.251.20"] = enc("31.186.251.186");
@@ -116,7 +118,6 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 
 
 	//VIRTUALIZER_DOLPHIN_WHITE_START
-
 	if (!hooked)
 	{
 		for (DWORD i = 0; i < AllowList.size(); i++)
@@ -141,7 +142,7 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 
 	//VIRTUALIZER_DOLPHIN_WHITE_END
 
-#if defined(RO) && !defined(DEBUG) || defined(RD)
+#if defined(RO) && !defined(DEBUG) || defined(RD) 
 		return dconnect(sock, (SOCKADDR*)&newConnection, namelen);
 #else
 	return dconnect(sock, name, namelen);

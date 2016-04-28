@@ -24,10 +24,11 @@ std::wstring CurrentSong;
 std::wstring LastSongPlayed;
 
 
-#if defined(THA) || defined(RU)
+#if defined(THA) || defined(RU) 
 char url[255];
+char autostart[255];
 #else
-char *url = "http://203.150.228.195:8014/listen.pls";
+char *url = "http://stream.r-a-d.io/main.mp3";
 //char *url = "http://stream.r-a-d.io/main.mp3";
 #endif
 //prototipuri
@@ -42,6 +43,7 @@ void LoadRadioFile()
 		char tempu[255];
 		GetPrivateProfileString("RALUKAT", "URL", enc("http://stream.r-a-d.io/main.mp3"), tempu, 255, enc(".\\Radio.dat"));
 		strcpy(url, tempu);
+		GetPrivateProfileString("RALUKAT", "AutoStart", "yes", autostart, 255, enc(".\\Radio.dat"));
 
 	}else{
 		strcpy(url,enc("http://stream.r-a-d.io/main.mp3"));
@@ -234,7 +236,7 @@ INT_PTR CALLBACK dialogproc(HWND h, UINT m, WPARAM w, LPARAM l)
 
 	case WM_TIMER:
 	{ // monitor prebuffering progress
-					 DWORD progress = BASS_StreamGetFilePosition(chan, BASS_FILEPOS_BUFFER)
+					 QWORD progress = BASS_StreamGetFilePosition(chan, BASS_FILEPOS_BUFFER)
 						 * 100 / BASS_StreamGetFilePosition(chan, BASS_FILEPOS_END); // percentage of buffer filled
 					 if (progress>75 || !BASS_StreamGetFilePosition(chan, BASS_FILEPOS_CONNECTED)) { // over 75% full (or end of download)
 						 KillTimer(win, 0); // finished prebuffering, stop monitoring

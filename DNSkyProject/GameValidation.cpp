@@ -24,9 +24,9 @@ void LoadAllowList()
 {
 	 AllowList = {
 #ifdef DEBUG
-		enc("127.0.0.1"),
-		enc("172.168.254.3"),
-		enc("89.39.13.247"),
+		//enc("127.0.0.1"),
+		enc("172.168.254.13"),
+		//enc("89.39.13.247"),
 #endif
 #ifdef RO
 		enc("149.202.144.250"),
@@ -34,6 +34,9 @@ void LoadAllowList()
 		enc("31.186.251.186"),
 		enc("31.186.251.198"),
 		enc("31.186.251.80"),
+		enc("172.16.251.10"),
+		enc("172.16.251.20"),
+		enc("172.16.251.30"),
 #endif
 #ifdef RU
 		enc("185.10.61.153"),
@@ -66,7 +69,22 @@ void LoadAllowList()
 #endif
 #endif
 #ifdef THA
-		enc("203.150.228.195")
+		enc("203.150.228.195"),
+		enc("43.254.133.65")
+#endif
+#ifdef CHN_SRC
+		enc("124.228.91.142"),
+		enc("27.254.155.10")
+#ifdef DEBUG
+		enc("192.168.1.100"),
+#endif
+#endif
+#ifdef CHN_TNT
+		enc("122.226.189.3"),
+		enc("124.160.134.30"),
+#ifdef DEBUG
+		enc("192.168.1.111"),
+#endif
 #endif
 	};
 }
@@ -122,12 +140,14 @@ DWORD WINAPI CheckServerThread(LPVOID)
 		if (init == 0)
 		{
 			init = 1;
-			LoadAllFixes();
+			//LoadAllFixes();
 			CreateThread(NULL, 0, MetricsCollectThread, NULL, NULL, 0);
 		}
 	}else{
 
+#ifdef DEBUG
 		MessageBox(NULL,"Game Cannot RUN","NOT OK",MB_OK);
+#endif
 		s.crash();
 		ExitProcess(0);
 	}

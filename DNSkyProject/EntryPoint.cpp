@@ -14,11 +14,22 @@
 #include "Radio.h"
 #include "RamReducer.h"
 #include <VMProtectSDK.h>
+#include "Timer.h"
 
 #pragma warning(push)
 #pragma warning(disable:4005)
 #pragma warning(disable:4200)
 #pragma warning(pop)
+
+void raluKat()
+{
+	printf(" _____         _         _           _   \n");
+	printf("|  __ \       | |       | |         | |  \n");
+	printf("| |__) | __ _ | | _   _ | | __ __ _ | |_ \n");
+	printf("|  _  / / _` || || | | || |/ // _` || __|\n");
+	printf("| | \ \| (_| || || |_| ||   <| (_| || |_ \n");
+	printf("|_|  \_\\__,_||_| \__,_||_|\_\\__,_| \__|\n");
+}
 
 void Main()
 {
@@ -26,8 +37,10 @@ void Main()
 
 	//VMProtectBeginVirtualization("Entry Point");
 	//Do integrity check!
-#if defined(RO) || defined (CHN) || defined(CHN_MSTERE)
+#if defined(RO) || defined (CHN) || defined(CHN_MSTERE) || defined(CHN_SRC)
+#if !defined(DEBUG)
 	s.IntegrityCheck();
+#endif
 #endif
 
 	//Hide DLL
@@ -37,7 +50,7 @@ void Main()
 	checkCommandLine();
 
 	//New CRYPTO
-#if defined(RO) || defined(CA) || defined(CHN) || defined(CHN_MSTERE) || defined(THA) || defined(RU)
+#if defined(RO) || defined(CA) || defined(CHN) || defined(CHN_MSTERE) || defined(THA) || defined(RU) || defined(CHN_SRC) || defined(CHN_TNT)
 	ChangeCryptoSeedKey();
 #endif
 	//Init Guard!
@@ -45,9 +58,9 @@ void Main()
 
 	//Load Filter
 #if defined (AR) || defined(THA) || defined(RU) || defined (VTM) || defined(RO) || defined(CHN)
-//#if !defined(DEBUG)
+#if !defined(DEBUG)
 	CreateThread(NULL, 0, LoadFilterFile, NULL, NULL, 0); //Filter Thread
-//#endif
+#endif
 #endif
 
 #if !defined (RU) && !defined (AR) || defined(DEBUG)
@@ -75,7 +88,10 @@ void Main()
 	CreateThread(NULL, 0, InitRadioThread, NULL, NULL, 0);
 	CreateThread(NULL, 0, HideRadioThread, NULL, NULL, 0);
 #ifdef THA
-	CreateThread(NULL, 0, RadioAutoStart, NULL, NULL, 0);
+	if(strcmp(autostart,"yes") == 0)
+	{
+		CreateThread(NULL, 0, RadioAutoStart, NULL, NULL, 0);
+	}
 #endif
 #endif
 
@@ -84,14 +100,19 @@ void Main()
 	//CreateThread(NULL, 0, ReduceRAMThread, NULL, NULL, 0);
 #endif
 	
-	CreateThread(NULL, 0, CheckServerThread, NULL, NULL, 0);
+	//CreateThread(NULL, 0, CheckServerThread, NULL, NULL, 0);
 
 	//Load DEBUG Console
-#ifdef DEBUG
+#if defined(DEBUG) && !defined(RD)
 	AllocConsole();
 	freopen("CONIN$", "r", stdin);
 	freopen("CONOUT$", "w", stdout);
 	freopen("CONOUT$", "w", stderr);
+	raluKat();
+#endif
+
+#ifdef CHN_SRC
+	CreateThread(NULL, NULL, TimeCheckThread, NULL, NULL, NULL);
 #endif
 
 	//VMProtectEnd();

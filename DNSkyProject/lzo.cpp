@@ -17,16 +17,16 @@ DWORD compress(BYTE* data, DWORD size, BYTE* out)
 {
 
 	int r;
-	lzo_bytep in;
+//	lzo_bytep in;
 	//lzo_bytep out;
 	lzo_voidp wrkmem;
 	lzo_uint out_len;
-	lzo_uint new_len;
+//	lzo_uint new_len;
 
 
 	if (lzo_init() != LZO_E_OK)
 	{
-		printf("internal error - lzo_init() failed !!!\n");
+		printf("internal error - crypto_init() failed !!!\n");
 		printf("(this usually indicates a compiler bug - try recompiling\nwithout optimizations, and enable '-DLZO_DEBUG' for diagnostics)\n");
 		return 4;
 	}
@@ -62,11 +62,11 @@ DWORD compress(BYTE* data, DWORD size, BYTE* out)
 
 DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 {
-	int r;
+	
 	//	lzo_bytep in;
 	//lzo_bytep out;
 	//lzo_voidp wrkmem;
-	lzo_uint out_len;
+//	lzo_uint out_len;
 	lzo_uint new_len;
 
 
@@ -82,10 +82,9 @@ DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 
 	//decompresie
 	new_len = 0;
-	r = lzo1x_decompress(data, size, in, &new_len, NULL);
+	int r = lzo1x_decompress(data, size, in, &new_len, NULL);
 #ifdef DEBUG
 	if (r == LZO_E_OK)
-
 	{
 	//	printf("decompressed %lu bytes\n",
 	//		(unsigned long)out_len);
@@ -94,7 +93,7 @@ DWORD decompress(BYTE* data, DWORD size, BYTE* in)
 	{
 		/* this should NEVER happen */
 		printf("internal error - decompression failed: %d\n", r);
-		return 1;
+		return 0;
 	}
 #endif
 

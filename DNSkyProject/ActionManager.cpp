@@ -17,7 +17,7 @@ const DWORD LoadAct1Call = 0x00C11020;
 const DWORD ReadStringCall = 0x00ABA3B0;
 Naked(ActionManager)
 {
-	//VMProtectBeginVirtualization("ACT v3");
+	VMProtectBeginVirtualization("ACT v3");
 
 	_asm{
 		PUSH ECX
@@ -173,7 +173,7 @@ ACT_V2:
 
 
 
-	//VMProtectEnd();
+	VMProtectEnd();
 }
 
 

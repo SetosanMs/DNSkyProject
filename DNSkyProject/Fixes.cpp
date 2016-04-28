@@ -20,12 +20,11 @@ void LoadAllFixes()
 	
 #if !defined(CA)
 #if !defined(AR)
-	ActionManagerFix();
 	EmitterVersionFix();
 #endif
 #endif
 
 
-	LoadCPUReducer();
+	//LoadCPUReducer();
 	LoadCommandProcessor();
 }

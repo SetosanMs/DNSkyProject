@@ -19,9 +19,6 @@
     <Filter Include="Source Files\PakFilter">
       <UniqueIdentifier>{d388a593-434a-4254-a515-933f18f45d89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Detour">
-      <UniqueIdentifier>{efbaff43-903c-4492-a569-8affcc159f69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\dConnect">
       <UniqueIdentifier>{6e04891b-475b-426f-a2fa-e57bc2ae37b3}</UniqueIdentifier>
     </Filter>
@@ -106,11 +103,17 @@
     <Filter Include="Source Files\Game Color">
       <UniqueIdentifier>{04fe500a-9444-4682-aace-4645de4dbfa9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\LZO">
+    <Filter Include="Source Files\Ralukat Encryption">
       <UniqueIdentifier>{6c06b978-df2c-4c58-a7d6-9e7de1ba379e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\LZO\depends">
+    <Filter Include="Source Files\Ralukat Encryption\depends">
       <UniqueIdentifier>{f84e946a-f9fc-47df-b5c1-608d1eb806c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Timer">
+      <UniqueIdentifier>{aaa6da2c-94c9-4e3b-a7b9-861391cb9a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dDebugOutputString\Detour">
+      <UniqueIdentifier>{efbaff43-903c-4492-a569-8affcc159f69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -118,10 +121,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Detours.cpp">
-      <Filter>Source Files\Detour</Filter>
+      <Filter>Source Files\dDebugOutputString\Detour</Filter>
     </ClCompile>
     <ClCompile Include="DetourControl.cpp">
-      <Filter>Source Files\Detour</Filter>
+      <Filter>Source Files\dDebugOutputString\Detour</Filter>
     </ClCompile>
     <ClCompile Include="dconnect.cpp">
       <Filter>Source Files\dConnect</Filter>
@@ -265,7 +268,10 @@
       <Filter>Source Files\Fixes</Filter>
     </ClCompile>
     <ClCompile Include="lzo.cpp">
-      <Filter>Source Files\LZO</Filter>
+      <Filter>Source Files\Ralukat Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -273,13 +279,13 @@
       <Filter>Source Files\Virtualizer</Filter>
     </ClInclude>
     <ClInclude Include="Detours.h">
-      <Filter>Source Files\Detour</Filter>
+      <Filter>Source Files\dDebugOutputString\Detour</Filter>
     </ClInclude>
     <ClInclude Include="se.h">
       <Filter>Source Files\SplashScreen\StringEncryption</Filter>
     </ClInclude>
     <ClInclude Include="DetourControl.h">
-      <Filter>Source Files\Detour</Filter>
+      <Filter>Source Files\dDebugOutputString\Detour</Filter>
     </ClInclude>
     <ClInclude Include="dconnect.h">
       <Filter>Source Files\dConnect</Filter>
@@ -435,13 +441,16 @@
       <Filter>Source Files\Fixes</Filter>
     </ClInclude>
     <ClInclude Include="lzo.h">
-      <Filter>Source Files\LZO</Filter>
+      <Filter>Source Files\Ralukat Encryption</Filter>
     </ClInclude>
     <ClInclude Include="portab.h">
-      <Filter>Source Files\LZO\depends</Filter>
+      <Filter>Source Files\Ralukat Encryption\depends</Filter>
     </ClInclude>
     <ClInclude Include="portab_a.h">
-      <Filter>Source Files\LZO\depends</Filter>
+      <Filter>Source Files\Ralukat Encryption\depends</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source Files\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

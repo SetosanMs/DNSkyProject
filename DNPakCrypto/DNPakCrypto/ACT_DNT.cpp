@@ -31,8 +31,6 @@ vector<unsigned char> intToBytes(DWORD paramInt)
 
 void encrypt_act(const string& s)
 {
-
-
 	string outputF = "encrypted_act\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
 
@@ -105,10 +103,11 @@ void encrypt_act(const string& s)
 			//printf("Chei alese : ");
 			for (int i = 0; i < key_size; i++)
 			{
-				std::random_device rd;
+/*				std::random_device rd;
 				std::mt19937 mt(rd());
 				std::uniform_int_distribution<int> dist(0, chei.size());
-				key[i] = chei[dist(mt)] & 0xFF; //hack
+	*/
+				key[i] = chei[(i*8)%chei.size()] & 0xFF; //hack
 				for (int j = 0; j < chei.size(); j++)
 				{
 					if (chei[j] == key[i])
@@ -134,7 +133,7 @@ void encrypt_act(const string& s)
 				}
 			}
 		
-			printf("%s - > Encrypted %d Bytes, Potential Keys: %d , Total Keys: %d!\n", s.c_str(), TotalEncryptedBytes, MarimeChei, key_size);
+			//printf("%s - > Encrypted %d Bytes, Potential Keys: %d , Total Keys: %d!\n", s.c_str(), TotalEncryptedBytes, MarimeChei, key_size);
 
 	
 			//scriem header.
@@ -161,19 +160,23 @@ void encrypt_act(const string& s)
 			}
 
 			//encrypt data
+
+			//encrypt data 8byte block!
 			for (DWORD i = CryptoSize; i < size; i += CryptoSize)
 			{
-				buffer[i - 2] ^= cheimagice[(i + 2) % 512];
-				buffer[i - 1] ^= cheimagice[(i + 1) % 512];
-				buffer[i] ^= cheimagice[i % 512];
-				TotalEncryptedBytes+=3;
+				for (DWORD j = 0; j < 8; j++)
+				{
+					buffer[i + j] ^= cheimagice[(j + 2) % 512];
+				}
+				TotalEncryptedBytes += 8;
 			}
+
 
 			//criptare STATICA PHA!
 			buffer[0x15] = 0xDB; //Criptate v2
 
 
-			printf("%s - > Encrypted %d Bytes! Version 2\n", s.c_str(), TotalEncryptedBytes);
+			//printf("%s - > Encrypted %d Bytes! Version 2\n", s.c_str(), TotalEncryptedBytes);
 
 		}
 			
@@ -355,8 +358,6 @@ void encrypt_dnt(const string& s)
 		//
 		buffer[0x00] = 0xDA;
 
-	
-	
 		DWORD CryptoSize = buffer[4]*10;
 		
 		//encrypt header
@@ -365,13 +366,15 @@ void encrypt_dnt(const string& s)
 			buffer[j] ^= cheimagice[j % 512];
 		}
 
-		//encrypt data
+		//encrypt data 32byte block!
 		for (DWORD i = CryptoSize; i < size; i += CryptoSize)
 		{
-			buffer[i - 2] ^=  cheimagice[(i + 2) % 512];
-			buffer[i - 1] ^=  cheimagice[(i + 1) % 512];
-			buffer[i] ^= cheimagice[i % 512]; 
+			for (DWORD j = 0; j < 32; j++)
+			{
+				buffer[i + j] ^= cheimagice[(j + 2) % 512];
+			}
 		}
+
 
 
 		VMProtectEnd();
@@ -463,6 +466,7 @@ void encryptTEST(const string& s)
 {
 	string outputF = "encryptedACT-DNT-XML\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
+	bool isAct = false;
 
 	if (infile.is_open())
 	{
@@ -473,24 +477,57 @@ void encryptTEST(const string& s)
 		infile.seekg(0, ios::beg);	
 		infile.read((char*)buffer, size);
 
+		DWORD forSize = size+5;
+		for (DWORD i = 0; i < forSize; i++)
+		{
+			outBuffer[i] = 0x00;
+		}
+
+		if (has_suffix(outputF, ".act"))
+		{
+			isAct = true;
+		}
 
 		DWORD NewSize = compress(buffer, size, outBuffer);
 
-		if (NewSize == 0)
-		{
-			printf("%s NOT CRYPTED!!!!\n", s.c_str());
-		}else{
-			printf("%s OK!\n", s.c_str());
-		}
 		BYTE bFileSize[4] = { 0 };
 		std::vector<BYTE> bytes = intToBytes(NewSize);
 		for (int i = 0; i < bytes.size(); i++)
 			bFileSize[i] = bytes[i];
-	
 
+		if (isAct){
+			if (outBuffer[size - 1] == 0x00 && outBuffer[size - 2] == 0x00 && outBuffer[size - 3] == 0x00 && outBuffer[size - 4] == 0x00 && outBuffer[size - 5] == 0x00 && outBuffer[size - 6] == 0x00 && outBuffer[size - 7] == 0x00)
+			{
+				outBuffer[size - 1] = bFileSize[0];
+				outBuffer[size - 2] = bFileSize[1];
+				outBuffer[size - 3] = bFileSize[2];
+				outBuffer[size - 4] = bFileSize[3];
+				outBuffer[size - 5] = 0xDE;
+
+
+				outBuffer[size - 7] ^= cheimagice[0];
+				outBuffer[size - 6] ^= cheimagice[1];
+				outBuffer[size - 4] ^= cheimagice[2];
+				outBuffer[size - 3] ^= cheimagice[3];
+				outBuffer[size - 2] ^= cheimagice[4];
+				outBuffer[size - 1] ^= cheimagice[5];
+			}
+			else{
+				NewSize = 0; //..
+			}
+		}
+
+		//
 		ofstream outfile;
 		outfile.open(outputF, ios::out | ios::binary);
 
+		if (NewSize == 0)
+		{
+			printf("%s NOT CRYPTED!!!!\n", s.c_str());
+		}
+		else{
+			printf("%s OK!\n", s.c_str());
+		}
 
 		if (NewSize == 0)
 		{
@@ -498,35 +535,55 @@ void encryptTEST(const string& s)
 		}
 		else if(NewSize>0){
 			//scrie header!
-			if (has_suffix(outputF, ".dnt"))
+			/*if (has_suffix(outputF, ".dnt"))
 			{
-				outBuffer[3] = 0xDD;
+				//outBuffer[3] = 0xDD;
 			}
 			else if (has_suffix(outputF, ".act"))
 			{
-				outBuffer[0] = 0xDD;
+				//outBuffer[0] = 0xDD;
 			}
 			else if (has_suffix(outputF, ".xml"))
 			{
-				outBuffer[size-7] = 0xDD;
+				//outBuffer[size-7] = 0xDD;
+			}*/
+			if (!isAct)
+			{
+				outBuffer[size +4] = bFileSize[0];
+				outBuffer[size +3] = bFileSize[1];
+				outBuffer[size +2] = bFileSize[2];
+				outBuffer[size +1] = bFileSize[3];
+				outBuffer[size] = 0xDD;
+
+				printf(" %.2X %.2X %.2X %.2X %.2X  \n", outBuffer[size], outBuffer[size + 1], outBuffer[size + 2], outBuffer[size + 3], outBuffer[size + 4]);
+
+				//Criptam footer.
+				outBuffer[size -2] ^= cheimagice[0];
+				outBuffer[size -1] ^= cheimagice[1];
+				outBuffer[size +1] ^= cheimagice[2];
+				outBuffer[size +2] ^= cheimagice[3];
+				outBuffer[size +3] ^= cheimagice[4];
+				outBuffer[size +4] ^= cheimagice[5];
 			}
+			//criptam header
+#if defined(RO) || defined(CHN)
+			//decrypt header
+			outBuffer[0] ^= cheimagice[10];
+			outBuffer[1] ^= cheimagice[11];
+			outBuffer[2] ^= cheimagice[12];
+			outBuffer[3] ^= cheimagice[13];
+#endif
 
-			outBuffer[size +3] = bFileSize[0];
-			outBuffer[size +2] = bFileSize[1];
-			outBuffer[size +1] = bFileSize[2];
-			outBuffer[size] = bFileSize[3];
+			if (isAct)
+			{
+				outfile.write((char*)outBuffer, size); //bagam un intreg pt original file size
 
-			//Criptam footer.
-			outBuffer[size +5] ^= cheimagice[0];
-			outBuffer[size +4] ^= cheimagice[1];
-			outBuffer[size +3] ^= cheimagice[2];
-			outBuffer[size +2] ^= cheimagice[3];
-			outBuffer[size +1] ^= cheimagice[4];
-			outBuffer[size] ^= cheimagice[5];
-
-
-			outfile.write((char*)outBuffer, size); //bagam un intreg pt original file size
-			//outfile.write((char*)bFileSize, sizeof(bFileSize));  //original file size
+			}
+			else
+			{
+				outfile.write((char*)outBuffer, size + 5); //bagam un intreg pt original file size
+			}
+				//outfile.write((char*)bFileSize, sizeof(bFileSize));  //original file size
 		}
 
 		outfile.close();
@@ -545,8 +602,10 @@ void decryptTEST(const string &s)
 	string outputF = "decryptedACT-DNT-XML\\" + s;
 	std::ifstream infile(s, std::ifstream::binary);
 	bool isValid = TRUE;
+	bool isAct = false;
 	if (infile.is_open())
 	{
+
 		infile.seekg(0, ios::end);
 		int size = infile.tellg();
 		BYTE *buffer = new BYTE[size];
@@ -555,51 +614,60 @@ void decryptTEST(const string &s)
 
 		//decriptam footer.
 
-
-		if (has_suffix(outputF, ".dnt"))
+		if (has_suffix(outputF, ".act"))
 		{
-			if (buffer[3]  != 0xDD)
+			if (buffer[size - 5] != 0xDE)
 			{
 				isValid = FALSE;
 			}
-			else if (buffer[3] == 0xDD)
+			else if (buffer[size - 5] == 0xDE)
 			{
-				buffer[3] = 0x00;
+				buffer[size - 5] = 0x00;
 			}
 		}
-		else if (has_suffix(outputF, ".act")){
-			if (buffer[0] != 0xDD)
+		if (has_suffix(outputF, ".dnt") || has_suffix(outputF, ".xml"))
+		{
+			if (buffer[size-5] != 0xDD)
 			{
 				isValid = FALSE;
 			}
-			else if(buffer[0] == 0xDD)
+			else if (buffer[size - 5] == 0xDD)
 			{
-				buffer[0] = 0x00;
-			}
-		}
-		else if (has_suffix(outputF, ".xml")){
-			if (buffer[size-7] != 0xDD)
-			{
-				isValid = FALSE;
-			}
-			else if (buffer[size - 7] == 0xDD)
-			{
-				buffer[size - 7] = 0x00;
+				buffer[size - 5] = 0x00;
 			}
 		}
 
 		if (isValid)
 		{
-			buffer[size - 6] ^= cheimagice[0];
-			buffer[size - 5] ^= cheimagice[1];
+
+#if defined(RO) || defined(CHN)
+			//decrypt header
+			buffer[0] ^= cheimagice[10];
+			buffer[1] ^= cheimagice[11];
+			buffer[2] ^= cheimagice[12];
+			buffer[3] ^= cheimagice[13];
+#endif
+			//decrypt footer
+			buffer[size - 7] ^= cheimagice[0];
+			buffer[size - 6] ^= cheimagice[1];
+
 			buffer[size - 4] ^= cheimagice[2];
 			buffer[size - 3] ^= cheimagice[3];
 			buffer[size - 2] ^= cheimagice[4];
 			buffer[size - 1] ^= cheimagice[5];
+			//printf(" %.2X %.2X %.2X %.2X %.2X %.2X  \n", buffer[size], buffer[size - 1], buffer[size - 2], buffer[size - 3], buffer[size - 4], buffer[size - 5]);
+			/*buffer[size - 6] ^= cheimagice[0];
+			buffer[size - 5] ^= cheimagice[1];
+			buffer[size - 4] ^= cheimagice[2];
+			buffer[size - 3] ^= cheimagice[3];
+			buffer[size - 2] ^= cheimagice[4];
+			buffer[size - 1] ^= cheimagice[5];*/
 		}
 		//printf("%x %x %x %x\n", buffer[size - 4], buffer[size - 3], buffer[size - 2], buffer[size-1]);
-		DWORD OrigFileSize = (buffer[size-4] << 24) | (buffer[size - 3] << 16) | (buffer[size - 2] << 8) | (buffer[size-1]);
-		
+		DWORD OrigFileSize = (buffer[size - 1] << 24) | (buffer[size - 2] << 16) | (buffer[size - 3] << 8) | (buffer[size - 4]);
+
+		//printf("Orig Size: %d\n",OrigFileSize);
+
 		BYTE *outBuffer = new BYTE[size];
 		/*
 		BYTE OrigSize[4] = { 0 };

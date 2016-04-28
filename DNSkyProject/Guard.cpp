@@ -11,6 +11,7 @@ DWORD tickCheck;
 
 void GuardThread()
 {
+
 	////VIRTUALIZER_DOLPHIN_WHITE_START
 	//VIRTUALIZER_DOLPHIN_WHITE_START
 	LoadProcessNameData();
@@ -21,7 +22,7 @@ void GuardThread()
 	//VIRTUALIZER_DOLPHIN_WHITE_END
 	do
 	{
-#ifdef DEBUG
+#if defined(DEBUG) && !defined(RD)
 #else
 		//VIRTUALIZER_DOLPHIN_WHITE_START
 		if (IsDebuggerPresent() || IsDbgPresentPrefixCheck() || Int2DCheck() || CheckProcessDebugFlags() || DebugObjectCheck() || CheckDbgPresentCloseHandle())
@@ -52,6 +53,9 @@ void GuardThread()
 
 void InitGuard()
 {
+#if defined(DEBUG) && !defined(RD)
+	return;
+#endif
 	//VIRTUALIZER_DOLPHIN_WHITE_START
 
 		CreateThread(NULL, NULL, LPTHREAD_START_ROUTINE(GuardThread), NULL, 0, 0);

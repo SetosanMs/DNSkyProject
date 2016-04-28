@@ -7,6 +7,10 @@
 #include "vlizer.h"
 #include "Extras.h"
 
+#pragma warning(push)
+#pragma warning(disable:4005)
+#pragma warning(disable:4200)
+#pragma warning(pop)
 
 DWORD WINAPI setWindowThread(LPVOID)
 {
@@ -23,27 +27,34 @@ DWORD WINAPI setWindowThread(LPVOID)
 
 		if (hWnd != NULL)
 		{
-			char WTITLE[128];
+			wchar_t WTITLE[128];
 #ifdef RO
 			int version = getClientVer();
-			wsprintf(WTITLE, enc("SkyNest REBORN v.%d"), version);
+			wsprintfW(WTITLE, L"SkyNest REBORN v.%d", version);
 #endif
 #ifdef RU
-			wsprintf(WTITLE, enc("1stDN Russia"));
+			wsprintfW(WTITLE, L"1stDN Russia");
 #endif
 #ifdef AR
-			wsprintf(WTITLE, enc("Arabic DragonNest - dnarabic.net"));
+			wsprintfW(WTITLE, L"Arabic DragonNest - dnarabic.net");
 #endif
 #ifdef VTM
-			wsprintf(WTITLE, enc("Dragon Nest iTea"));
+			wsprintfW(WTITLE, L"Dragon Nest iTea");
 #endif
 #ifdef CA
-			wsprintf(WTITLE, enc("DragonNest"));
+			wsprintfW(WTITLE, L"DragonNest");
 #endif
 #ifdef THA
-			wsprintf(WTITLE, enc("Easy DragonNest"));
+			wsprintfW(WTITLE, L"Easy DragonNest");
 #endif
-			SetWindowTextA(hWnd, WTITLE);
+#ifdef CHN_SRC
+			wsprintfW(WTITLE, L"梦之谷");
+#endif
+#ifdef CHN_TNT
+			wsprintfW(WTITLE, L"龙之谷");
+#endif
+
+			SetWindowTextW(hWnd, WTITLE);
 			return NULL;
 		}
 

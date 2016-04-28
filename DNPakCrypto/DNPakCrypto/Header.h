@@ -1,8 +1,11 @@
-#define CHN
+#define CHN_TNT
 
 extern BYTE cheimagice[];
 bool cryptpakv3(const std::string& s);
 
+//
+bool crypt_serverside(const std::string& s);
+bool decrypt_serverside(const std::string& s);
 //
 void encrypt_xml(const std::string& s);
 void decrypt_xml(const std::string& s);

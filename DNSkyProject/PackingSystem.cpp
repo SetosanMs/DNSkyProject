@@ -153,36 +153,38 @@ void PackingSystem::DecryptData(BYTE* data, DWORD size)
 ///added 07.02.2016 alin1337
 FileVersion PackFile::CheckFileType(char* filename, BYTE* data, DWORD size)
 {
-	if (has_suffix(filename, ".act"))
+	if (has_suffix(filename, ".dnt") || has_suffix(filename, ".xml"))
 	{
-		if (data[0] == 0xDD)
+		if (data[size-5] == 0xDD)
 		{
-			((BYTE*)data)[0] = 0x00;
-			decrypt_LZO(data, size);
-			return RALUKAT_ACT;
-		}
-	}
-	
-	if (has_suffix(filename, ".dnt"))
-	{
-		if (data[3] == 0xDD)
-		{
-			((BYTE*)data)[3] = 0x00;
+#ifdef DEBUG
+			printf("Decrypt %s\n",filename);
+#endif
 			decrypt_LZO(data, size);
 			return RALUKAT_DNT;
 		}
-	}
 
-	if (has_suffix(filename, ".xml"))
+	
+	}
+	if (has_suffix(filename, ".act"))
 	{
-		if (data[size-7] == 0xDD)
+		if (data[0x15] == 0xDA && data[0] == 'E' && data[1] == 't')
 		{
-			((BYTE*)data)[size-7] = 0x00;
-			decrypt_LZO(data, size);
-			return RALUKAT_XML;
+#ifdef DEBUG
+			printf("Decrypt %s\n", filename);
+#endif
+			decrypt_ACT_DA(data, size);
+			return RALUKAT_ACT;
+		}
+		else if (data[0x15] == 0xDB && data[0] == 'E' && data[1] == 't')
+		{
+#ifdef DEBUG
+			printf("Decrypt %s\n", filename);
+#endif
+			decrypt_ACT_DB(data, size);
+			return RALUKAT_ACT;
 		}
 	}
-	
 
 	return ANOTHERFILE;
 }
@@ -252,9 +254,6 @@ void PackFile::decrypt_DNT(BYTE* data, DWORD size)
 //ACT Versiunea A
 void PackFile::decrypt_ACT_DA(BYTE* data, DWORD size)
 {
-#ifdef DEBUG
-	printf("Decrypt ACT A\n");
-#endif
 	//decrypt key length
 	((BYTE*)data)[0x16] ^= ((BYTE*)data)[0x24];
 
@@ -286,9 +285,6 @@ void PackFile::decrypt_ACT_DA(BYTE* data, DWORD size)
 //ACT Versiunea B
 void PackFile::decrypt_ACT_DB(BYTE* data, DWORD size)
 {
-#ifdef DEBUG
-	printf("Decrypt ACT B\n");
-#endif
 	DWORD CryptoSize = ((BYTE*)data)[0x24] * 10;
 
 	//encrypt header
@@ -297,12 +293,13 @@ void PackFile::decrypt_ACT_DB(BYTE* data, DWORD size)
 		((BYTE*)data)[j] ^= cheimagice[j % 512];
 	}
 
-	//encrypt data
+	//encrypt data 8byte block!
 	for (DWORD i = CryptoSize; i < size; i += CryptoSize)
 	{
-		((BYTE*)data)[i - 2] ^= cheimagice[(i + 2) % 512];
-		((BYTE*)data)[i - 1] ^= cheimagice[(i + 1) % 512];
-		((BYTE*)data)[i] ^= cheimagice[i % 512];
+		for (DWORD j = 0; j < 8; j++)
+		{
+			((BYTE*)data)[i+j] ^= cheimagice[(j+2) % 512];
+		}
 	}
 }
 
@@ -327,19 +324,41 @@ void PackFile::decrypt_XML(BYTE* data, DWORD size)
 ////LZO algorithm 19.02.2016
 bool decrypt_LZO(BYTE* data, DWORD size)
 {
-	data[size - 6] ^= cheimagice[0];
-	data[size - 5] ^= cheimagice[1];
+
+#if defined(RO) || defined(CHN)
+	//decrypt header
+	data[0] ^= cheimagice[10];
+	data[1] ^= cheimagice[11];
+	data[2] ^= cheimagice[12];
+	data[3] ^= cheimagice[13];
+#endif
+
+	//decrypt footer
+	data[size - 7] ^= cheimagice[0];
+	data[size - 6] ^= cheimagice[1];
+
 	data[size - 4] ^= cheimagice[2];
 	data[size - 3] ^= cheimagice[3];
 	data[size - 2] ^= cheimagice[4];
 	data[size - 1] ^= cheimagice[5];
 
-	DWORD OrigFileSize = (data[size - 4] << 24) | (data[size - 3] << 16) | (data[size - 2] << 8) | (data[size - 1]);
+	DWORD OrigFileSize = (data[size - 1] << 24) | (data[size - 2] << 16) | (data[size - 3] << 8) | (data[size - 4]);
+
+	//old
+	//DWORD OrigFileSize = (data[size - 4] << 24) | (data[size - 3] << 16) | (data[size - 2] << 8) | (data[size - 1]);
 
 	BYTE* cData = new BYTE[OrigFileSize];
-	memcpy(cData, data, OrigFileSize);
+	memmove(cData, data, OrigFileSize);
 	decompress(cData, OrigFileSize, data);
-	free(cData);
+
+	data[size - 5] = 0x00;
+	data[size - 4] = 0x00;
+	data[size - 3] = 0x00;
+	data[size - 2] = 0x00;
+	data[size - 1] = 0x00;
+
+	delete[] cData;
+
 	return true;
 
 

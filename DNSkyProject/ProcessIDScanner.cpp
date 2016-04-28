@@ -14,7 +14,9 @@ void LoadProcessNameData()
 		enc("cheatengine-i386.exe"),
 		enc("cheatengine-x86_64.exe"),
 		enc("ollydbg.exe"),
+#if !defined(CHN_MSTERE)
 		enc("wpepro.net.exe"),
+#endif
 		enc("x64_dbg.exe"),
 		enc("x32_dbg.exe"),
 		enc("x96_dbg.exe"),

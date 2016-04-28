@@ -17,6 +17,22 @@
       <Configuration>CHN_R_AH</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="CHN_SD|Win32">
+      <Configuration>CHN_SD</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="CHN_SRC_R_AH|Win32">
+      <Configuration>CHN_SRC_R_AH</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="CHN_TNT_D|Win32">
+      <Configuration>CHN_TNT_D</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="CHN_TNT|Win32">
+      <Configuration>CHN_TNT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -123,6 +139,34 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT_D|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SRC_R_AH|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SD|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_R_AH|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -168,7 +212,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AR_R_AH_PAK|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v80</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -215,6 +259,18 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RO_R_AH|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT_D|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SRC_R_AH|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SD|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CHN_R_AH|Win32'" Label="PropertySheets">
@@ -269,6 +325,26 @@
     <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RO_R_AH|Win32'">
+    <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
+    <IncludePath>../lzo-2.09\include;../lzo-2.09\src;..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT|Win32'">
+    <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
+    <IncludePath>../lzo-2.09\include;../lzo-2.09\src;..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT_D|Win32'">
+    <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
+    <IncludePath>../lzo-2.09\include;../lzo-2.09\src;..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SRC_R_AH|Win32'">
+    <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
+    <IncludePath>../lzo-2.09\include;../lzo-2.09\src;..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
+    <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SD|Win32'">
     <OutDir>E:\DNSKY_BUILDS\bulk\</OutDir>
     <IncludePath>../lzo-2.09\include;../lzo-2.09\src;..\VMProtect\Include\C;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include</IncludePath>
     <LibraryPath>..\lzo-2.09;..\VMProtect\Lib\Windows;$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib</LibraryPath>
@@ -448,7 +524,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>RO;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RADIO;RO;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -459,6 +535,86 @@
     </Link>
     <PostBuildEvent>
       <Command>"E:\DNSKY_BUILDS\bulk\string_encrypt.exe" "E:\DNSKY_BUILDS\bulk\DNSkyProject.dll" "E:\DNSKY_BUILDS\RO_R_AH_RELEASE\dnsky.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>CHN_TNT;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>"E:\DNSKY_BUILDS\bulk\string_encrypt.exe" "E:\DNSKY_BUILDS\bulk\DNSkyProject.dll" "E:\DNSKY_BUILDS\CHN_TNT_R\dnsky.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CHN_TNT_D|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>DEBUG;CHN_TNT;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>"E:\DNSKY_BUILDS\bulk\string_encrypt.exe" "E:\DNSKY_BUILDS\bulk\DNSkyProject.dll" "E:\DNSKY_BUILDS\CHN_TNT_R\dnsky.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SRC_R_AH|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>CHN_SRC;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>"E:\DNSKY_BUILDS\bulk\string_encrypt.exe" "E:\DNSKY_BUILDS\bulk\DNSkyProject.dll" "E:\DNSKY_BUILDS\CHN_SRC_R_AH\dnsky.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CHN_SD|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>DEBUG;CHN_SRC;_9JOB;ANTIHACK;NEWUI;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>"E:\DNSKY_BUILDS\bulk\string_encrypt.exe" "E:\DNSKY_BUILDS\bulk\DNSkyProject.dll" "E:\DNSKY_BUILDS\CHN_SRC_R_AH\dnsky.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CHN_R_AH|Win32'">
@@ -648,7 +804,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>RO;_9JOB;NEWUI;DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RADIO;RO;_9JOB;NEWUI;DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -711,6 +867,7 @@
     <ClCompile Include="SmartPointers.cpp" />
     <ClCompile Include="Splash.cpp" />
     <ClCompile Include="TextColor.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WindowName.cpp" />
     <ClCompile Include="WindowScanner.cpp" />
     <ClCompile Include="zLibUncompress.cpp" />
@@ -770,6 +927,7 @@
     <ClInclude Include="SmartPointers.h" />
     <ClInclude Include="Splash.h" />
     <ClInclude Include="TextColor.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="vlizer.h" />
     <ClInclude Include="WindowName.h" />
     <ClInclude Include="WindowScanner.h" />

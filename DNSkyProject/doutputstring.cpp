@@ -15,6 +15,9 @@ void WINAPI myOutputDebugString(LPCTSTR lpOutputString);
 
 void WINAPI myOutputDebugString(LPCTSTR lpOutputString)
 {
+	return;
+
+	/*
 
 	//VIRTUALIZER_DOLPHIN_WHITE_START
 	if (tickCheck + 3000 < GetTickCount())
@@ -30,7 +33,7 @@ void WINAPI myOutputDebugString(LPCTSTR lpOutputString)
 			InitGuard();
 			LastThreadStarted = GetTickCount();
 		}
-
+	
 		//	MessageBoxA(NULL, "CPU TICK MISSMATCH, FORCE CLOSE!", "OK", MB_OK);
 
 		//
@@ -38,6 +41,6 @@ void WINAPI myOutputDebugString(LPCTSTR lpOutputString)
 
 #ifdef DEBUG_
 	printf("%s", lpOutputString);
-#endif
+#endif	*/
 	//return dOutputDebugString(lpOutputString);
 }

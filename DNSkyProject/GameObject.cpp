@@ -32,9 +32,6 @@ DWORD getMap()
 	DWORD MapID = getPointer(0x12d1de0,0xA4);
 	return MapID;
 
-
-
-
 	/*
 	void* pointer= (DWORD*)(0x16D1DE0) + 0xA4;
 
@@ -67,6 +64,7 @@ DWORD getMap()
 
 void LoadGameObject()
 {
+	/*
 CONST DWORD dwCameraDirectionOfs = 0xBFC;
 
 CONST DWORD dwCharBase = FindPointerAddressPattern((unsigned char*)CharBasePattern, "[[[[xxxxxx[[[[xx[[[[xx[[[[xxxx[[[[xx[", 0, 0x00400000);
@@ -80,11 +78,12 @@ CONST DWORD dwClickObject = FindPattern((unsigned char*)ClickChestPattern, "xxxx
 
 CONST DWORD dwRemoveIntroMovies = FindPattern((unsigned char*)RemoveIntroMoviePattern, "xxxxxxx[[[[xxxxx[[[[", 0, 0x00A50000); //81 EC 10 02 00 00 A1 [[ [[ [[ [[ 33 C4 89 84 24 [[ [[ [[ [[
 
-
-printf("CharBase : %X \n", dwCharBase);
-printf("Map : %d  %X\n", getMap(), dwMapIndex);
 printf("Camera : %X \n", dwCameraBase);
 printf("dwGoldCountAddy: %X value: %d \n", dwGoldCountAddy, ((DWORD*)dwGoldCountAddy) + dwGoldCountOfs);
 printf("dwRemoveIntroMovies: %X value: %X \n", dwRemoveIntroMovies, *(DWORD*)dwRemoveIntroMovies);
+printf("CharBase : %X \n", dwCharBase);
+*/
+printf("Map : %d  \n", getMap());
+
 }
 

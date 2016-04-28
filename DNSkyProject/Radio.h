@@ -1,3 +1,5 @@
+extern char autostart[255];
+
 DWORD WINAPI InitRadioThread(LPVOID);
 DWORD WINAPI HideRadioThread(LPVOID);
 DWORD WINAPI RadioAutoStart(LPVOID);

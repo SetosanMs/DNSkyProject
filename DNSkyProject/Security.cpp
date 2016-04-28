@@ -13,9 +13,15 @@
 
 
 #ifdef RO
-#define EXECUTABLE_CRC 0x9BE87391
+#ifdef RD
+#define EXECUTABLE_CRC 0x84A12267
+#else
+#define EXECUTABLE_CRC 0xE9B5AF32
+#endif
 #elif CHN
 #define EXECUTABLE_CRC 0x72A08A50
+#elif CHN_SRC
+#define EXECUTABLE_CRC 0x812ED782
 #elif CHN_MSTERE
 #define EXECUTABLE_CRC 0x9b8b16ea // 0xa7aa430f //dbg: 0x9b8b16ea
 #else

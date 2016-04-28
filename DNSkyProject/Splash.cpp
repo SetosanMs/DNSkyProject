@@ -397,7 +397,7 @@ void SplashScreen()
 {
 	CSplash splash1(RLKT_BITMAP, RGB(255, 255, 255));
 	splash1.ShowSplash();
-	Sleep(2500);
+	Sleep(800);
 	splash1.CloseSplash();
 }
 
@@ -406,7 +406,7 @@ void SplashScreenGuard()
 {
 	CSplash splash2(GUARD_BITMAP, RGB(255, 255, 255));
 	splash2.ShowSplash();
-	Sleep(2500);
+	Sleep(800);
 	splash2.CloseSplash();
 }
 #endif

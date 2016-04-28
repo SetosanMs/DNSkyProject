@@ -163,7 +163,12 @@ Naked(FieldClassInit)
 	case 0x4F:
 		ActPointer = 0x01F21750;
 		break;
-		//Silver Hunter
+	case 0x50: //Hunter
+		ActPointer = 0x01F228C0;
+		break;
+	case 0x51:	//Silver Hunter
+		ActPointer = 0x01F228F0;
+		break;
 	default:
 #ifdef DEBUG_CLASS
 		char buf[127];
@@ -260,7 +265,7 @@ void ClassInitFix()
 	//set Jump to naked function. jumptable fieldclass
 	SetRange((LPVOID)0x005E1D83, 17, ASM::NOP); //7+5+5 //005E1D83  |. FF2485 EC215E00     JMP DWORD PTR DS:[EAX*4+5E21EC]
 	SetOp((LPVOID)0x005E1D83, (LPVOID)FieldClassInit, ASM::JMP);
-	SetByte((PVOID)0x005E1D7C, 0x44); //0x3F+0xB = total classes , 0x41+0x0B = including dark avenger 
+	SetByte((PVOID)0x005E1D7C, 0x46); //0x3F+0xB = total classes , 0x41+0x0B = including dark avenger 
 
 
 	//Init base classes 

@@ -32,7 +32,7 @@ void ParseCommand(WCHAR * text)
 #endif
 
 
-#if defined(AR) || defined(DEBUG)
+#if defined(AR) 
 
 	ArabicTextTryFix(text);
 
@@ -112,13 +112,13 @@ void ParseCommand(WCHAR * text)
 #endif
 
 #ifdef DEBUG
-	if (wcscmp(L".test", text) == 0)
+	/*if (wcscmp(L".test", text) == 0)
 	{
 		SendChatField(L"Server", L"-- Test1");
 		SendChatGM(L"Server", L"-- Test2");
 		SendChatNormal(L"Server", L"-- Test3");
 		nullCommand();
-	}
+	}*/
 
 	if (wcscmp(L"rescan", text) == 0)
 	{

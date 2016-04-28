@@ -20,7 +20,7 @@ void generateRandomMutex()
 
 	for (int i = 0; i < 8; i += 2)
 	{
-		srand(time(NULL));
+		srand((DWORD)time(NULL));
 		int index1 = rand() % 22;
 		SetByte((PVOID)(0x00D5A0EC + i), randomMutex[index1]);
 	}
@@ -32,11 +32,11 @@ void checkCommandLine()
 	LPWSTR *szArglist;
 	int nArgs = 0;
 	szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
-#if !defined(THA)
+#if !defined(THA) && !defined(RU)
 	if (nArgs < 5)
 	{
-#ifdef CHN
-		MessageBoxW(NULL, L"从开始的Launcher.exe", L"Game", MB_ICONWARNING);
+#if defined(CHN) || defined(CHN_MSTERE) || defined(CHN_TNT)
+		MessageBoxW(NULL, L"从开始的DNLauncher.exe", L"Game", MB_ICONWARNING);
 #else
 		MessageBoxA(NULL, enc("Start game from DNLauncher.exe!"), enc("Wait a sec!"), MB_ICONMASK);
 #endif
@@ -51,14 +51,14 @@ void checkCommandLine()
 	AccountName = std::string(tempAcc.begin(), tempAcc.end());
 
 
-#ifdef NEWUI
+
 	std::wstring cmdline(GetCommandLineW());
 	std::size_t found = cmdline.find(L"/newui");
 	if (found != std::string::npos)
 	{
 		LoadNewUI = TRUE;
 	}
-#endif
+
 	int i = 0;
 	for (i = 0; i < nArgs; i++)
 	{
