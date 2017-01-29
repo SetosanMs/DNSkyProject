@@ -53,7 +53,8 @@ void GuardThread()
 
 void InitGuard()
 {
-#if defined(DEBUG) && !defined(RD)
+	//rlkt changed 14.06.2016
+#if defined(DEBUG) || defined(RD)
 	return;
 #endif
 	//VIRTUALIZER_DOLPHIN_WHITE_START

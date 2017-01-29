@@ -19,5 +19,6 @@ bool checkIP(std::string ip);
 bool checkIP(std::wstring wip);
 
 DWORD WINAPI CheckServerThread(LPVOID);
+DWORD WINAPI MetrixThread(LPVOID);
 
 #endif

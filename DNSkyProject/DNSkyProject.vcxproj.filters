@@ -112,7 +112,7 @@
     <Filter Include="Source Files\Timer">
       <UniqueIdentifier>{aaa6da2c-94c9-4e3b-a7b9-861391cb9a6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\dDebugOutputString\Detour">
+    <Filter Include="Source Files\Detour">
       <UniqueIdentifier>{efbaff43-903c-4492-a569-8affcc159f69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -121,10 +121,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Detours.cpp">
-      <Filter>Source Files\dDebugOutputString\Detour</Filter>
+      <Filter>Source Files\Detour</Filter>
     </ClCompile>
     <ClCompile Include="DetourControl.cpp">
-      <Filter>Source Files\dDebugOutputString\Detour</Filter>
+      <Filter>Source Files\Detour</Filter>
     </ClCompile>
     <ClCompile Include="dconnect.cpp">
       <Filter>Source Files\dConnect</Filter>
@@ -279,13 +279,13 @@
       <Filter>Source Files\Virtualizer</Filter>
     </ClInclude>
     <ClInclude Include="Detours.h">
-      <Filter>Source Files\dDebugOutputString\Detour</Filter>
+      <Filter>Source Files\Detour</Filter>
     </ClInclude>
     <ClInclude Include="se.h">
       <Filter>Source Files\SplashScreen\StringEncryption</Filter>
     </ClInclude>
     <ClInclude Include="DetourControl.h">
-      <Filter>Source Files\dDebugOutputString\Detour</Filter>
+      <Filter>Source Files\Detour</Filter>
     </ClInclude>
     <ClInclude Include="dconnect.h">
       <Filter>Source Files\dConnect</Filter>

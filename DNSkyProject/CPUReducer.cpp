@@ -13,7 +13,7 @@ __asm {
 pushad
 }
 
-Sleep(5); //sleeps inside main thread to reduce cpu
+Sleep(99999999999); //sleeps inside main thread to reduce cpu
 
 __asm {
 popad
@@ -28,15 +28,15 @@ void LoadCPUReducer()
 {
 	//new method 
 	//0055F00F  |. 6A 01          PUSH 0x1                                 ; /Timeout = 1. ms
-	SetByte((LPVOID)(0x0055F00F + 1), 7);
+	//SetByte((LPVOID)(0x0055F00F + 1), 7);
 
 	//0055F002     807C24 2C 01   CMP BYTE PTR SS:[ESP+0x2C],0x1
-	SetByte((LPVOID)(0x0055F002 + 4), 1);
+	//SetByte((LPVOID)(0x0055F002 + 4), 1);
 
 
 
-	//SetRange((LPVOID)0x0055EEA0, 5, ASM::NOP);
-	//SetOp((LPVOID)0x0055EEA0, (LPVOID)CPUReducerHook, ASM::JMP);
+	SetRange((LPVOID)0x0055EEA0, 5, ASM::NOP);
+	SetOp((LPVOID)0x0055EEA0, (LPVOID)CPUReducerHook, ASM::JMP);
 }
 
 //CONST HOOK hkCPUReducer = { dwCPUReducer, dwCPUReducer+5, "\x83\xEC\x18\x53\x55", 5};

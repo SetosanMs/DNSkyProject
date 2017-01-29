@@ -8,7 +8,7 @@
 
 
 //realoc toata functia in memoria dll-ului ca sa nu faca competitia hook si sa-mi fure fisierele decriptate. burn em' all.
-//REGISTRI ebx = filename , esi = pointre catre uncompresed data.
+//REGISTRI ebx = filename , esi = pointer catre uncompresed data.
 //CEtFileHandle *CEtPackingFile::OpenFile( const char *strPath )
 const DWORD Call1 = 0x00BE6790;
 const DWORD Call2 = 0x00BE5C60;

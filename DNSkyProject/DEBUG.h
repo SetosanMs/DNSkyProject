@@ -4,6 +4,8 @@
 #include "SendFunction.h"
 #include "ActionManager.h"
 #include "GameValidation.h"
+
+
 void LOAD_DEBUG_SWITCHES()
 {
 	//Added 11.11.2015 by Alin

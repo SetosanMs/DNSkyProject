@@ -33,13 +33,8 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	{
 		return dconnect(sock, name, namelen);
 	}
-	
-	if (strcmp(sender, enc("149.202.144.250")) == 0 && uPort == 80)
-	{ 
-		return dconnect(sock, name, namelen);
-	}
 
-	if (strcmp(sender, enc("127.0.0.1")) == 0 || strcmp(sender, enc("211.218.230.106")) == 0){
+	if (strcmp(sender, enc("127.0.0.1")) == 0 || strcmp(sender, enc("211.218.230.106")) == 0 || strcmp(sender, enc("124.158.12.181")) == 0){
 		return dconnect(sock, name, namelen);
 	}
 
@@ -53,7 +48,10 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	}
 #endif
 
+	AllocatedIP = sender;
 
+
+#ifndef RO
 
 #if !defined(RO) || defined(DEBUG) && !defined(RD) 
 	AllocatedIP = sender;
@@ -113,6 +111,7 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	newConnection.sin_port = name_in->sin_port;
 #endif
 
+#endif
 
 
 
@@ -141,12 +140,13 @@ int WINAPI myconnect(SOCKET sock, const struct sockaddr *name, int namelen) {
 	}
 
 	//VIRTUALIZER_DOLPHIN_WHITE_END
-
+	/*
 #if defined(RO) && !defined(DEBUG) || defined(RD) 
 		return dconnect(sock, (SOCKADDR*)&newConnection, namelen);
 #else
-	return dconnect(sock, name, namelen);
 #endif
+	*/
+	return dconnect(sock, name, namelen);
 
 	//VMProtectEnd();
 }

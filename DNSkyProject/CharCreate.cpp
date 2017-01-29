@@ -126,7 +126,7 @@ Naked(CharCreatePointer3)
 	}
 }
 
-const DWORD JMPCharCreatePointer4 = 0x007393F6;//007393F6  |. 85C9           TEST ECX,ECX
+const DWORD JMPCharCreatePointer4 = 0x007393F6; //007393F6  |. 85C9           TEST ECX,ECX
 Naked(CharCreatePointer4)
 {
 	//Select Char

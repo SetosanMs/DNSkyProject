@@ -24,7 +24,9 @@ void LoadProcessNameData()
 		enc("procexp.exe"),
 		enc("immunitydebugger.exe"),
 		enc("petools.exe"),
-		enc("processhacker.exe")
+		enc("processhacker.exe"),
+		enc("tuoji_80ex_D1.exe"),
+		enc("tuoji_80ex_D1.exe"),
 	};
 }
 
@@ -43,7 +45,7 @@ void ScanProcId(const char* ProcName){
 			for (DWORD i = 0; i < strlen(pe32.szExeFile); ++i)
 				pe32.szExeFile[i] = tolower(pe32.szExeFile[i]);
 
-			if (strcmp(pe32.szExeFile, ProcName) == 0)
+			if (_stricmp(pe32.szExeFile, ProcName) == 0)
 			{
 				
 				HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);  // Close detected process

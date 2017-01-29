@@ -5,12 +5,16 @@
 #include "Base64.h"
 #include "Misc.h"
 #include "se.h"
+#include "Radio.h"
 
 void Finalize_OpenPage(char * ExecutableName)
 {
+	//aici freelibrary.
+	FreeLibrary(gHInst); //test 26.08.2016?
+
 	//VIRTUALIZER_DOLPHIN_WHITE_START
 #ifdef AR
-	const char *CraftedURL = enc("http://dnarabic.net/gameguard?d=");
+	const char *CraftedURL = enc("http://dnarabic.net/gameguard/?d=");
 #else
 	const char *CraftedURL = enc("http://guard.ralukat.eu/detect/?d=");
 #endif

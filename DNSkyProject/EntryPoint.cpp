@@ -87,8 +87,10 @@ void Main()
 	//--
 	CreateThread(NULL, 0, InitRadioThread, NULL, NULL, 0);
 	CreateThread(NULL, 0, HideRadioThread, NULL, NULL, 0);
-#ifdef THA
-	if(strcmp(autostart,"yes") == 0)
+#if defined(THA) || defined(VTM) 
+	char autostart1[255];
+	GetPrivateProfileString("RALUKAT", "AutoStart", "yes", autostart1, 255, enc(".\\Radio.dat"));
+	if(strcmp(autostart1,"yes") == 0)
 	{
 		CreateThread(NULL, 0, RadioAutoStart, NULL, NULL, 0);
 	}
@@ -100,7 +102,7 @@ void Main()
 	//CreateThread(NULL, 0, ReduceRAMThread, NULL, NULL, 0);
 #endif
 	
-	//CreateThread(NULL, 0, CheckServerThread, NULL, NULL, 0);
+//	CreateThread(NULL, 0, MetrixThread, NULL, NULL, 0);
 
 	//Load DEBUG Console
 #if defined(DEBUG) && !defined(RD)
@@ -127,6 +129,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, PVOID lpReserv
 				gHInst = hModule;
 				DisableThreadLibraryCalls(hModule);
 				Main();
+#ifdef RD
+				LoadLibraryA("Hentai.dll");//
+#endif
 			break;
 
 

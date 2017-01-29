@@ -64,7 +64,7 @@ void ChangeCryptoSeedKey()
 #endif
 
 #ifdef CHN_MSTERE
-	SetDword((LPVOID)(0x00407091 + 1), 0x92854782);
+	SetDword((LPVOID)(0x00407091 + 1), 0x69696969);
 #endif
 
 #ifdef THA
@@ -81,7 +81,7 @@ void ChangeCryptoSeedKey()
 #endif
 
 #ifdef CHN_TNT
-	SetDword((LPVOID)(0x00407091 + 1), 0x59595959);
+	SetDword((LPVOID)(0x00407091 + 1), 0x69696969);
 #endif
 	//VMProtectEnd();
 }

@@ -4,9 +4,9 @@
 #define MAX_DUMP_SIZE 32
 #define MAX_PROC_NAME 32
 #if defined(CHN_MSTERE)
-#define MAX_PROCESS_DUMP 101
+#define MAX_PROCESS_DUMP 103
 #else
-#define MAX_PROCESS_DUMP 105
+#define MAX_PROCESS_DUMP 107
 #endif
 
 typedef struct ANITHACK_PROCDUMP {

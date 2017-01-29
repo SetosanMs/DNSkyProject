@@ -33,7 +33,8 @@ DWORD WINAPI setWindowThread(LPVOID)
 			wsprintfW(WTITLE, L"SkyNest REBORN v.%d", version);
 #endif
 #ifdef RU
-			wsprintfW(WTITLE, L"1stDN Russia");
+		//	wsprintfW(WTITLE, L"1stDN Russia");
+			wsprintfW(WTITLE, L"Dragon Nest");
 #endif
 #ifdef AR
 			wsprintfW(WTITLE, L"Arabic DragonNest - dnarabic.net");
@@ -46,6 +47,9 @@ DWORD WINAPI setWindowThread(LPVOID)
 #endif
 #ifdef THA
 			wsprintfW(WTITLE, L"Easy DragonNest");
+			//wsprintfW(WTITLE, L"Yelp DragonNest");
+			//wsprintfW(WTITLE, L"Ice DragonNest");
+
 #endif
 #ifdef CHN_SRC
 			wsprintfW(WTITLE, L"梦之谷");

@@ -23,18 +23,17 @@ bool _started = FALSE;
 std::wstring CurrentSong;
 std::wstring LastSongPlayed;
 
-
-#if defined(THA) || defined(RU) 
-char url[255];
 char autostart[255];
+#if defined(THA) || defined(RU) || defined(VTM)
+char url[255];
+
 #else
 char *url = "http://stream.r-a-d.io/main.mp3";
 //char *url = "http://stream.r-a-d.io/main.mp3";
 #endif
 //prototipuri
 void __cdecl OpenURL(void *url);
-
-#if defined(THA) || defined(RU)
+#if !defined(CHN_TNT)
 void LoadRadioFile()
 {
 
@@ -51,7 +50,6 @@ void LoadRadioFile()
 
 }
 #endif
-
 void GetCurrentSong()
 {
 	wchar_t PlayingSong[128];
@@ -81,6 +79,9 @@ void PlayRadio()
 	{
 		BASS_ChannelPlay(chan, FALSE);
 	}else{
+
+		//MessageBoxA(NULL, url, __FUNCTION__, MB_OK);
+
 		_beginthread(OpenURL, 0, url);
 		
 		_started = 1;
@@ -128,6 +129,8 @@ static wchar_t* charToWChar(const char* text)
 // update stream title from metadata
 void DoMeta()
 {
+	//MessageBoxA(NULL, "CALL 1", __FUNCTION__, MB_OK);
+
 	const char *meta = BASS_ChannelGetTags(chan, BASS_TAG_META);
 	if (meta) { // got Shoutcast metadata
 		const char *p = strstr(meta, "StreamTitle='"); // locate the title
@@ -136,7 +139,7 @@ void DoMeta()
 			if (p2) {
 				char *t = _strdup(p + 13);
 				t[p2 - (p + 13)] = 0;
-#if !defined(THA)
+#if !defined(THA) && !defined(VTM)
 				CurrentSong = charToWChar(t);
 				GetCurrentSong();
 #endif
@@ -159,7 +162,7 @@ void DoMeta()
 				if (artist) {
 					char text[100];
 					_snprintf(text, sizeof(text), "%s - %s", artist, title);
-#if !defined(THA)
+#if !defined(THA) && !defined(VTM)
 					CurrentSong = charToWChar(text);
 					GetCurrentSong();
 #endif
@@ -167,7 +170,7 @@ void DoMeta()
 				}
 				else
 				{
-#if !defined(THA)
+#if !defined(THA) && !defined(VTM)
 					CurrentSong = charToWChar(title);
 					GetCurrentSong();
 #endif
@@ -177,6 +180,9 @@ void DoMeta()
 			}
 		}
 	}
+
+//	MessageBoxA(NULL, "CALL 1 END", __FUNCTION__, MB_OK);
+
 }
 
 void CALLBACK MetaSync(HSYNC handle, DWORD channel, DWORD data, void *user)
@@ -346,7 +352,7 @@ INT_PTR CALLBACK dialogproc(HWND h, UINT m, WPARAM w, LPARAM l)
 DWORD __stdcall InitRadioThread(LPVOID)
 {
 
-#if defined(THA) || defined(RU)
+#if defined(THA) || defined(RU) || defined(VTM)
 	LoadRadioFile();
 #endif
 
@@ -399,14 +405,12 @@ DWORD WINAPI HideRadioThread(LPVOID)
 
 DWORD WINAPI RadioAutoStart(LPVOID)
 {
-	while (1)
-	{
-		Sleep(2000);
-		if (PlayerData.isConnected == 1)
-		{
-			PlayRadio();
-			return 0;
-		}
-	}
+#ifdef THA
+	Sleep(10000);
+	PlayRadio();
+#else
+	Sleep(10000);
+	PlayRadio();
+#endif
 	return 0;
 }
